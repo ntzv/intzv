@@ -1,0 +1,96 @@
+# Translation of Plugins - Insert math - Development (trunk) in Russian
+# This file is distributed under the same license as the Plugins - Insert math - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-08-03 05:47:08+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Insert math - Development (trunk)\n"
+
+#: insert-math.php:62
+msgid "Additional settings"
+msgstr "Дополнительные настройки"
+
+#: insert-math.php:57
+msgid "Block"
+msgstr "Блок"
+
+#. Author of the plugin/theme
+msgid "CMTV"
+msgstr "CMTV"
+
+#: insert-math.php:103
+msgid "Edit"
+msgstr "Изменить"
+
+#: insert-math.php:53
+msgid "Editing math"
+msgstr "Редактирование формулы"
+
+#. Description of the plugin/theme
+msgid "Fast and handy insert any math formulas in your posts."
+msgstr "Быстрая и удобная вставка любых математических формул."
+
+#: insert-math.php:73
+msgid "Formula ID"
+msgstr "ID формулы"
+
+#: insert-math.php:78
+msgid "Formula classes"
+msgstr "Классы формулы"
+
+#: insert-math.php:67
+msgid "Formula color"
+msgstr "Цвет формулы"
+
+#: insert-math.php:58
+msgid "Inline"
+msgstr "Строка"
+
+#: insert-math.php:103
+msgid "Insert"
+msgstr "Вставить"
+
+#. Plugin Name of the plugin/theme
+msgid "Insert math"
+msgstr "Вставка формул"
+
+#: insert-math.php:56
+msgid "Insert math as"
+msgstr "Вставить формулу как"
+
+#: insert-math.php:120
+msgid "Insert/edit math"
+msgstr "Вставить/изменить формулу"
+
+#: insert-math.php:99
+msgid "Nothing to preview"
+msgstr "Формула не набрана"
+
+#: insert-math.php:94
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: insert-math.php:89
+msgid "Start typing math here..."
+msgstr "Начните набирать формулу здесь..."
+
+#: insert-math.php:68
+msgid "Text color"
+msgstr "Цвет текста"
+
+#: insert-math.php:87
+msgid "Type math using %s"
+msgstr "Используйте %s для набора формулы"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/CMTV/wordpress-plugin-insert-math"
+msgstr "https://github.com/CMTV/wordpress-plugin-insert-math"
+
+#: insert-math.php:53
+msgid "Inserting math"
+msgstr "Вставка формулы"
