@@ -1,29 +1,19 @@
 <?php
-include("../wp-content/themes/semicolon/dbconfig.php");
 
 define('FPDF_FONTPATH','fpdf_font/');
 
 require('fpdf.php');
 
+if (isset($_REQUEST['data']) && $_REQUEST['data'] != "" && $_REQUEST['data'] != "''"){
 //echo $_REQUEST['data'];
 //function hex2dec
 //returns an associative array (keys: R,G,B) from a hex html code (e.g. #3FE5AA)
-function hex2dec($couleur){
-    $R = '00';
-    $V = '00';
-    $B = '00';
-    if (strlen($couleur) == 7){
-        $R = substr($couleur, 1, 2);
-        $V = substr($couleur, 3, 2);
-        $B = substr($couleur, 5, 2);
-    }
-    if (strlen($couleur) == 4){
-        $R = substr($couleur, 1, 1);
-        $V = substr($couleur, 2, 1);
-        $B = substr($couleur, 3, 1);
-    }
+function hex2dec($couleur = "#000000"){
+    $R = substr($couleur, 1, 2);
     $rouge = hexdec($R);
+    $V = substr($couleur, 3, 2);
     $vert = hexdec($V);
+    $B = substr($couleur, 5, 2);
     $bleu = hexdec($B);
     $tbl_couleur = array();
     $tbl_couleur['R']=$rouge;
@@ -35,10 +25,6 @@ function hex2dec($couleur){
 //conversion pixel -> millimeter in 72 dpi
 function px2mm($px){
     return $px*25.4/72;
-}
-
-function pers2mm($px){
-    return $px*2;
 }
 
 function txtentities($html){
@@ -156,7 +142,7 @@ function OpenTag($tag, $attr)
         case 'TR': //TR-BEGIN
             break;
         case 'TD': // TD-BEGIN
-            if( !empty($attr['WIDTH']) ) {$this->tdwidth=(strpos($attr['WIDTH'],'px'))?px2mm($attr['WIDTH']):$attr['WIDTH']; $this->tdwidth=(strpos($attr['WIDTH'],'%'))?pers2mm($attr['WIDTH']):$attr['WIDTH'];}
+            if( !empty($attr['WIDTH']) ) $this->tdwidth=($attr['WIDTH']/4);
             else $this->tdwidth=40; // Set to your own width if you need bigger fixed cells
             if( !empty($attr['HEIGHT']) ) $this->tdheight=($attr['HEIGHT']/6);
             else $this->tdheight=6; // Set to your own height if you need bigger fixed cells
@@ -323,102 +309,15 @@ $pdf->SetFont('Calibri','',10);
 //$pdf->SetFontSize(14);
 //$pdf->WriteHTML($html);
 //
-
-
-if (isset($_REQUEST['data']) && $_REQUEST['data'] != "" && $_REQUEST['data'] != "''"){
-
-
-
 $text = $_REQUEST['data'];
 
 $text = urldecode($text);
-
-$pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png", 12, 6, 12, 12);	
+	
 $pdf->WriteHTML($text);
-//$pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png");
 
 //$text = iconv('utf-8', 'windows-1251', $text);
 
 $pdf->Output();
-}
-else{
-
-  if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
-	$connection = mysql_connect(DBSERV, DBUSER, DBPASS);
-    if (!$connection) { 
-      echo "Ошибка подключения к базе данных. Код ошибки: ".mysqli_connect_error(); 
-      exit; 
-    } 
-
-    mysql_select_db(DBNAME) or die(mysql_error());  
-
-    $query = "SET names UTF8";
-    $result = mysql_query($query, $connection) or die(mysql_error());
-	 
-	$query = "show tables";
-	$result = mysql_query($query, $connection) or die(mysql_error());
-
-	$table = "";
-	for ($x = 0; $x < mysql_num_rows($result); $x++){
-		if ($_REQUEST['table'] == mysql_result($result, $x, 0))
-			$table = mysql_result($result, $x, 0);
-	}
-	$mark = "";
-	if ($table != ""){
-		
-      $case = "1 = 1";
-		
-	  if (isset($_REQUEST['case']) && $_REQUEST['case'] != ""){
-		  $case = $_REQUEST['case'];
-		  $case = str_replace("exit", "", $case);
-		  $case = str_replace("quit", "", $case);
-		  $case = str_replace(";", "", $case);
-		  $case = str_replace("drop", "", $case);
-		  $case = str_replace("delete", "", $case);
-		  $case = str_replace("alter", "", $case);
-		  $case = str_replace("_lteq_", "<=", $case);
-		  $case = str_replace("_gteq_", ">=", $case);
-		  $case = str_replace("_eq_", "=", $case);
-		  $case = str_replace("_lt_", "<", $case);
-		  $case = str_replace("_gt_", ">", $case);
-		  $case = str_replace("_and_", " AND ", $case);
-		  $case = str_replace("_or_", " OR ", $case);
-		  $case = str_replace("_not_", " NOT ", $case);
-		  $case = urldecode($case);
-		  $case = str_replace("_lk_", " LIKE '%", $case);
-		  if (strpos($case, "LIKE '%")>1) $case = $case."%'";
-		  
-	  //echo $table;	  
-		  
-	  $query = "SELECT data FROM $table WHERE $case LIMIT 1";
-
-        //echo $query;
-        
-	  $result = mysql_query($query, $connection) or die(mysql_error());
-
-	  $text = mysql_result($result, 0, 0);
-	  
-	  //echo $text;
-	  
-        $text = urldecode($text);
-	
-        $pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png", 12, 6, 12, 12);	
-        $pdf->WriteHTML($text);
-
-        //$text = iconv('utf-8', 'windows-1251', $text);
-
-        $pdf->Output();
-	  }	  
-
-
-	}
-	
-
-  mysql_close($connection);	 	
-
-  //echo $text;
-  }
-
 }
 
 ?>

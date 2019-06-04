@@ -1,0 +1,63 @@
+
+/* САША САША САША САША */
+
+.menu5 {
+width: 240px;
+}
+summary:focus {
+outline: 0;
+}
+details > summary {
+cursor:pointer;
+color: #696969;
+background: #D3D3D3;
+font-size:12px;
+margin:6px;
+padding:8px;
+}
+details > summary:hover {
+color: #696969;
+background: #C0C0C0;
+}
+details > a {
+display:block;
+color:white;
+font-size:10px;
+margin:3px 6px 3px 18px;
+padding: 4px;
+background: white;
+}
+details > a:hover {
+background:#D3D3D3;
+font-weight: bold;
+}
+details > a::before {
+content: "- ";
+}
+
+footer {
+	justify-content: center;
+display: flex;
+	width: 100%;
+	clear:both;	
+	background: #eee;
+}
+
+#footer {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+
+@media all and (max-width: 680px) {
+    footer {
+    flex-direction: column;
+    }
+}    
+
+.menu-footer_1-container > ul.menu,.menu-footer_2-container > ul.menu  {
+  list-style:none;
+  margin: 0;
+}
+
+/* САШАСАШАСАШАСАША*/

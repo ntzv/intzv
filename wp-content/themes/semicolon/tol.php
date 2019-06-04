@@ -35,7 +35,7 @@ $_REQUEST['case']='tip_id_eq_'.$tip;
 include("res2sel.php");
 ?>
 </select>
-				</td><td width="15%">
+				</td><td>
 				<p class="help" tag="1">Исполнение</p>
 <select id="gab" class="inputbox1">
 
@@ -71,10 +71,10 @@ include("res2sel.php");
 </select> 
 					 
 				</td>
-                <td><p class="help" tag="1">Ток терм.стойкости, кА</p>
+                <td><p class="help" tag="1">Ток терм.стойкости, кА</p><div class="round"  onclick="popup('info',1);" style="display:none;">?</div>
 <select id="term_t" class="inputbox1">
 					
-</select><p><input id="term_t_nt" type="checkbox" disabled/>неточно</p>		 
+</select>		 
 				</td><td><p class="help" tag="1">Время протекания, с</p><div id="vrem_pr"></div></td><td colspan="2"><p  class="help" tag="1">Расширенный диапазон первичного тока, %</p><select id="ras" class="inputbox1" style="width:100px; background:#fee;"><option>120</option><option>150</option><option>200</option></select></td>
 			</tr>
 			<tr>
@@ -105,10 +105,10 @@ include("res2sel.php");
 				<td colspan="8"><p style="max-width:100%;"><b id="countvyv">Вторичные обмотки и отпайки</b></p></td>
 			</tr>
 			<tr>
-				<td><p class="help" tag="1">№ Обмотки</p></td><td><p>№ Отпайки</p></td><td width="12%"><p class="help" tag="1">Выводы</p></td><td><p class="help" tag="1">Первичный ток, А</p></td><td><p class="help" tag="1">Вторичный ток, А</p></td><td width="12%"><p class="help" tag="1">Нагрузка, ВА</p></td><td><p class="help" tag="1">Класс точности</p></td><td width="17%"><p class="help" tag="1">Коэф. безоп./ Кратность</p></td>
+				<td><p class="help" tag="1">№ Обмотки</p></td><td><p>№ Отпайки</p></td><td width="12%"><p class="help" tag="1">Выводы</p></td><td><p class="help" tag="1">Первичный ток, А</p></td><td><p class="help" tag="1">Вторичный ток, А</p></td><td width="12%"><p class="help" tag="1">Нагрузка, ВА</p></td><td><p class="help" tag="1">Класс точности</p></td><td><p class="help" tag="1">Коэф. безоп./ Кратность</p></td>
 			</tr>
 			<tr>
-				<td id="tdd_0"><p>1</p></td><td colspan="7"><table id="a01" style="max-width:100%;width:100%;"><tr>
+				<td id="tdd_0"><p>1</p></td><td colspan="7"><table id="a01" style="max-width:100%;"><tr>
 				  <td id="td_1"><p></p></td>
 				  <td width="15%"><input id="vyv_1_0" class="inputbox" style="width:100px; background:#fee;" value="И1-И2" disabled type="text" /></td>
 				  <td width="15%"><select id="vtor_p_1" class="inputbox1"></select></td>
@@ -124,13 +124,13 @@ include("res2sel.php");
 				  </td>
 				  </tr>
 				  <tr>
-				  <td onclick="addrow2('a01');" class="tdbuttonbl">добавить<br /> отпайку</td><td colspan="6"></td>
+				  <td onclick="addrow2('a01');" class="tdbutton">добавить<br /> отпайку</td><td colspan="6"></td>
 				  </tr>	  
 				  </table>
 				</td>
 			</tr>
 			<tr>
-				<td onclick="addrow('a00');" class="tdbuttonbl">добавить<br />обмотку</td><td colspan="7"></td>
+				<td onclick="addrow('a00');" class="tdbutton">добавить<br />обмотку</td><td colspan="7"></td>
 			</tr>
 		</table>
 		<table id="sch" class="empty" style="max-width:100%;width:100%;">
@@ -138,7 +138,7 @@ include("res2sel.php");
 				<td></td><td colspan="6"></td><td></td>
 			</tr>
 			<tr>
-				<td width="10%"></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line-height:48px;width:80%;" colspan="6">Выполнить поиск</td><td onclick="createpdf(tip);" id="create" class="tdbuttonbl" style="border-left:1px solid white; height:50px;font-size:18px;line:height:48px;width:10%;">PDF документ</td>
+				<td></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line:height:48px;" colspan="6">Выполнить поиск</td><td></td>
 			</tr>
 			<tr>
 				<td></td><td colspan="6"><input id="sform" type="text" disabled style="width:100%;"/></td><td></td>
@@ -165,4 +165,12 @@ include("res2sel.php");
 			</tr>
         </table>
 
+<div id="msg" class="info" style="display:none;">
+	<div>
+		
+	</div>
+	<p  onclick="this.parent.style.display='none';">
+		x
+	</p>
+</div>
 

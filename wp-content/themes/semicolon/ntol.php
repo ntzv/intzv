@@ -198,7 +198,7 @@ include("res2sel.php");
 				  </td>
 				  </tr>
 				  <tr>
-				  <td onclick="addrow2('a01');" class="tdbuttonbl">добавить<br /> отпайку</td><td colspan="6"></td>
+				  <td onclick="addrow2('a01');" class="tdbutton">добавить<br /> отпайку</td><td colspan="6"></td>
 				  </tr>	  
 				  </table>
 				</td>
@@ -213,7 +213,7 @@ include("res2sel.php");
 				<td></td><td colspan="6"></td><td></td>
 			</tr>
 			<tr>
-				<td width="10%"></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line-height:48px;width:80%;" colspan="6">Выполнить поиск</td><td onclick="createpdf(tip);" id="create" class="tdbuttonbl" style="border-left:1px solid white; height:50px;font-size:18px;line:height:48px;width:10%;">PDF документ</td>
+				<td></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line:height:48px;" colspan="6">Выполнить поиск</td><td></td>
 			</tr>
 			<tr>
 				<td></td><td colspan="6"><input id="sform" type="text" disabled style="width:100%;"/></td><td></td>

@@ -3,6 +3,54 @@
  * The Semicolon Theme
  */
 
+// add:Подключение функции хлебных крошек
+require_once get_theme_file_path('breadcrumbs.php');
+
+// Добавление деления по таксономиям
+function show_breadcrumbs(){
+	if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(' > ');
+}
+add_action('semicolon_breadcrumbs', 'show_breadcrumbs');
+
+function more_tax_crumbs( $empty, $term, $that ){
+	$is_post_filter = doing_filter('post_tax_crumbs'); // else 'term_tax_crumbs'
+
+	if(  ( $is_post_filter && is_singular('product') ) || is_tax('climcategory') ){
+		global $post;
+
+		$out = '';
+
+		$out = $that->_tax_crumbs( $term, 'self' ) . $that->arg->sep; // базовая такса - country
+
+		// тип сделки
+		$term = get_query_var('type');
+		if( $term && ($term = get_term_by('slug', $term, 'type')) )
+			$out .= $that->_tax_crumbs( $term, 'self' ) . $that->arg->sep; // тип сделки
+
+		// тип недвижимости
+		$term = get_query_var('voltclass');
+		if( $term && ($term = get_term_by('slug', $term, 'voltclass')) ){
+			// запись
+			if( $is_post_filter ){
+				$_crumbs = $that->_tax_crumbs( $term, 'self' );
+				$out .= $that->_add_title( $_crumbs, $post );   
+			}
+			// такса
+			else {
+				$_crumbs = $that->_tax_crumbs( $term, 'parent' );
+				$out .= $that->_add_title( $_crumbs, $term, esc_html($term->name) );                
+			}
+
+		}
+
+		return $out;
+	}
+
+	return $empty;
+}
+add_filter('term_tax_crumbs', 'more_tax_crumbs', 10, 3);
+add_filter('post_tax_crumbs', 'more_tax_crumbs', 10, 3);
+
 class Semicolon {
 	public static $defaults = array();
 	public static $colors_css_version = 20160925;
@@ -80,7 +128,9 @@ class Semicolon {
 		// menu for social profile links.
 		register_nav_menus( array(
 			'primary' => __( 'Primary Menu', 'semicolon' ),
-			'social'  => __( 'Social Menu', 'semicolon' ),
+			// fix: меню пользователя
+			'user'  => __( 'User Menu', 'semicolon' ),
+			'user-unregistered'  => __( 'Unregistered User Menu', 'semicolon' )
 		) );
 
 		// Enable support for Post Formats.
@@ -94,11 +144,12 @@ class Semicolon {
 			'gallery',
 		) );
 
+		// fix: исключение возможности выбора фона
 		// Setup the WordPress core custom background feature.
-		add_theme_support( 'custom-background', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) );
+		// add_theme_support( 'custom-background', array(
+		// 	'default-color' => 'ffffff',
+		// 	'default-image' => '',
+		// ) );
 
 		// Add support for Jetpack's Featured Content
 		add_theme_support( 'featured-content', array(
@@ -891,6 +942,7 @@ if ( function_exists('register_sidebar') ) {
 <p>Select sidebar to use on this page.</p>
 <?php
 }
+
 function save_sidebar_link(){
 global $post;
 if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {return $post->ID;}
@@ -905,7 +957,7 @@ function sidebar_css() {
         ';
 }
 
-// add:Добавление поддержки логотипа
+// fix:Добавление поддержки логотипа
 add_theme_support( 'custom-logo', array(
 	'height'      => 100,
 	'width'       => 400,
@@ -914,7 +966,12 @@ add_theme_support( 'custom-logo', array(
 	'header-text' => array( 'site-title', 'site-description' ),
 ) );
 
-//Дополнительные поля в профили пользователей
+// fix:Отключаем админ панель для всех, кроме администраторов
+if (!current_user_can('administrator')):
+  show_admin_bar(false);
+endif;
+
+// fix:Дополнительные поля в профили пользователей
 function tml_registration_errors( $errors ) {
  if ( empty( $_POST['org_name'] ) )
  $errors->add( 'empty_org_name', '<strong>ОШИБКА</strong>: Пожалуйста введите название организации.' );
@@ -932,7 +989,6 @@ function tml_registration_errors( $errors ) {
  $errors->add( 'empty_hobby_name', '<strong>ОШИБКА</strong>: Пожалуйста введите ваш вид деятельности.' );
  return $errors;
 }
-
 add_filter( 'registration_errors', 'tml_registration_errors' );
 
 function tml_user_register( $user_id ) {
@@ -961,12 +1017,6 @@ function tml_user_register( $user_id ) {
 }
 
 add_action( 'user_register', 'tml_user_register' );
-
-/* Отключаем админ панель для всех, кроме администраторов. */
-if (!current_user_can('administrator')):
-  show_admin_bar(false);
-endif;
-//Добавление дополнительных полей в профили пользователей
 add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
 add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
 
@@ -1067,8 +1117,7 @@ function new_modify_user_table( $column ) {
     $column['hobby_name'] = 'Вид деятельности';
     $column['shop_name'] = 'Покупатель';
     $column['manage_name'] = 'Ведущий менеджер';
-   
-    $column['denyemails'] = 'Отказ от рассылки';
+	$column['denyemails'] = 'Отказ от рассылки';
     return $column;
 }
 add_filter( 'manage_users_columns', 'new_modify_user_table' );

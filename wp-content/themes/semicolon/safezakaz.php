@@ -1,10 +1,6 @@
 <?php
 include("dbconfig.php");
 
-global $current_user;
-
-$login = ($current_user->user_login)?$current_user->user_login:'';
-
 if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	$connection = mysql_connect(DBSERV, DBUSER, DBPASS);
     if (!$connection) { 
@@ -34,7 +30,6 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 		$mail = "";
 		$phone = "";
 		$prim = "";
-		$config = "data=''";
 
 		$case = "1 = 1";
 		
@@ -143,15 +138,12 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	if (isset($_REQUEST["inn"]) && $_REQUEST["inn"] != "" && $_REQUEST["inn"] != "''"){
 	  	$inn = 'inn='.$_REQUEST["inn"].',';
 	}
-	if (isset($_REQUEST["config"]) && $_REQUEST["config"] != ""){
-	  $config = 'data='.$_REQUEST["config"].',';
-	}
 
-	$query = "UPDATE $table SET $objectt $count $address $mail $phone $sesid $number $prim $able $time $coast $inn $config date_out=ADDDATE(CURDATE(), INTERVAL 3 DAY) WHERE $case";
+	$query = "UPDATE $table SET $objectt $count $address $mail $phone $sesid $number $prim $able $time $coast $inn date_out=ADDDATE(CURDATE(), INTERVAL 3 DAY) WHERE $case";
 
 	  if (isset($_REQUEST['id']) && $_REQUEST['id'] != "") {
 		  $id = $_REQUEST['id']; 
-		  $query = "UPDATE $table SET $objectt $count $address $mail $phone $sesid $number $prim $able $time $coast $inn $config date_out=ADDDATE(CURDATE(), INTERVAL 3 DAY) WHERE id=$id AND $case";
+		  $query = "UPDATE $table SET $objectt $count $address $mail $phone $sesid $number $prim $able $time $coast $inn date_out=ADDDATE(CURDATE(), INTERVAL 3 DAY) WHERE id=$id AND $case";
 		  
 		  //echo '<h3>'.$query.'</h3>';
 	  }
@@ -188,14 +180,14 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 		$pod = ((mysql_result($result, $j, 8) == $id) || (mysql_result($result, $j, 12) != mysql_result($result, $j, 13)))?('class="proundgn_">&radic;</p>'):('class="proundgn" onclick="safezakaz('.mysql_result($result, $j, 8).',\''.mysql_result($result, $j, 9).'\');">Подтвердить</p>');
 		$col = $colors[mysql_result($result, $j, 4)-1];
 		$selab = (mysql_result($result, $j, 5) == 1)?'checked':'';
-		$selab = (mysql_result($result, $j, 4) == 12)?' disabled':$selab;
+		$selab = (mysql_result($result, $j, 4) == 12)?'':$selab;
 		$selab .= ((mysql_result($result, $j, 4) == 1) || (mysql_result($result, $j, 8) == $id) || (mysql_result($result, $j, 12) != mysql_result($result, $j, 13)))?' disabled':'';
 		$seltm = (mysql_result($result, $j, 6) == 1)?'checked':'';  
 		$seltm .= ((mysql_result($result, $j, 8) == $id) || (mysql_result($result, $j, 12) != mysql_result($result, $j, 13)))?' disabled':'';
 		$selct = (mysql_result($result, $j, 7) == 1)?'checked':'';
 		$selct .= ((mysql_result($result, $j, 8) == $id) || (mysql_result($result, $j, 12) != mysql_result($result, $j, 13)))?' disabled':'';
         echo '<tr>';
-		echo '<td id="srt-'.mysql_result($result, $j, 8).'">'.htmlspecialchars(mysql_result($result, $j, 0)).'</td><td><input id="count-'.mysql_result($result, $j, 8).'" type="text" class="inputbox1"  style="width:36px;" value="'.mysql_result($result, $j, 1).'"/></td>';
+		echo '<td>'.htmlspecialchars(mysql_result($result, $j, 0)).'</td><td><input id="count-'.mysql_result($result, $j, 8).'" type="text" class="inputbox1"  style="width:36px;" value="'.mysql_result($result, $j, 1).'"/></td>';
 		echo '<td><input id="prim-'.mysql_result($result, $j, 8).'" type="text" class="inputbox1" style="width:250px;" value="'.htmlspecialchars(mysql_result($result, $j, 2)).'"/></td>';
 		echo '<td><p style="color:'.$col.'">'.mysql_result($result, $j, 3).'</p></td>';
 		echo '<td class="tdsmaltxt"><p class="check"><input id="able-'.mysql_result($result, $j, 8).'" type="checkbox" '.$selab.'/>  Возможность</p><p class="check"><input id="time-'.mysql_result($result, $j, 8).'" type="checkbox" '.$seltm.'/>  Сроки</p><p class="check"><input id="coast-'.mysql_result($result, $j, 8).'" type="checkbox" '.$selct.'/>  Стоимость</p></td><td style="text-align:center;"><p '.$pod.'</td>';

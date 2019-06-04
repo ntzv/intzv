@@ -17,7 +17,7 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	$result = mysql_query($query, $connection) or die(mysql_error());
 
 	$table = "";
-	for ($x = 0; $x < mysql_num_rows($result); $x++){ 
+	for ($x = 0; $x < mysql_num_rows($result); $x++){
 		if ($_REQUEST['table'] == mysql_result($result, $x, 0))
 			$table = mysql_result($result, $x, 0);
 	}

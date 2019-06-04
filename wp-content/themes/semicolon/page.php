@@ -10,22 +10,17 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="content" class="site-content">
 		<main id="main" class="site-main" role="main">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( ! is_front_page()) { Semicolon::breadcrumbs(); } /*fix: не показывать навигацию на главной*/?> 
+			<?php 
+			while ( have_posts() ) : the_post(); 
 
-				<?php get_template_part( 'content', 'page' ); ?>
+				get_template_part( 'content', 'page' );
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
-
-			<?php endwhile; // end of the loop. ?>
+			endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	</div><!-- #content -->
 
 <?php get_footer(); ?>

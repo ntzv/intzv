@@ -4,25 +4,15 @@ define('FPDF_FONTPATH','fpdf_font/');
 
 require('fpdf.php');
 
-//echo $_REQUEST['data'];
+if (isset($_REQUEST['data']) && $_REQUEST['data'] != "" && $_REQUEST['data'] != "''"){
 //function hex2dec
 //returns an associative array (keys: R,G,B) from a hex html code (e.g. #3FE5AA)
-function hex2dec($couleur){
-    $R = '00';
-    $V = '00';
-    $B = '00';
-    if (strlen($couleur) == 7){
-        $R = substr($couleur, 1, 2);
-        $V = substr($couleur, 3, 2);
-        $B = substr($couleur, 5, 2);
-    }
-    if (strlen($couleur) == 4){
-        $R = substr($couleur, 1, 1);
-        $V = substr($couleur, 2, 1);
-        $B = substr($couleur, 3, 1);
-    }
+function hex2dec($couleur = "#000000"){
+    $R = substr($couleur, 1, 2);
     $rouge = hexdec($R);
+    $V = substr($couleur, 3, 2);
     $vert = hexdec($V);
+    $B = substr($couleur, 5, 2);
     $bleu = hexdec($B);
     $tbl_couleur = array();
     $tbl_couleur['R']=$rouge;
@@ -34,10 +24,6 @@ function hex2dec($couleur){
 //conversion pixel -> millimeter in 72 dpi
 function px2mm($px){
     return $px*25.4/72;
-}
-
-function pers2mm($px){
-    return $px*2;
 }
 
 function txtentities($html){
@@ -57,8 +43,6 @@ protected $HREF;
 protected $fontList;
 protected $issetfont;
 protected $issetcolor;
-protected $tdborder;
-public $code;
 
 function __construct($orientation='P', $unit='mm', $format='A4')
 {
@@ -77,7 +61,6 @@ function __construct($orientation='P', $unit='mm', $format='A4')
     $this->tdheight=0;
     $this->tdalign="L";
     $this->tdbgcolor=false;
-	$this->tdborder=0; //my border
 
     $this->oldx=0;
     $this->oldy=0;
@@ -85,7 +68,6 @@ function __construct($orientation='P', $unit='mm', $format='A4')
     $this->fontlist=array("arial","times","courier","helvetica","symbol");
     $this->issetfont=false;
     $this->issetcolor=false;
-	$this->code='';
 }
 
 //////////////////////////////////////
@@ -106,23 +88,11 @@ function WriteHTML($html)
                 $this->PutLink($this->HREF,$e);
             elseif($this->tdbegin) {
                 if(trim($e)!='' && $e!="&nbsp;") {
-                //if(trim($e)!='') {
-					//$this->SetLineWidth(0.1);
-					//$this->SetDrawColor(128, 128, 128);
-                    //$this->Cell($this->tdwidth,$this->tdheight,$e,$this->tableborder,'',$this->tdalign,$this->tdbgcolor);
-                    //$this->Cell($this->tdwidth,$this->tdheight,$e,$this->tableborder,0,$this->tdalign,$this->tdbgcolor);
-					//$this->MultiCell($this->tdwidth,$this->tdheight,$e,$this->tdborder,$this->tdalign,$this->tdbgcolor);
-                    $this->Cell($this->tdwidth,$this->tdheight,$e,$this->tdborder,0,$this->tdalign,$this->tdbgcolor);
+                    $this->Cell($this->tdwidth,$this->tdheight,$e,$this->tableborder,'',$this->tdalign,$this->tdbgcolor);
                 }
-                elseif($e=="&nbsp;" && trim($e)=='') {
-                //elseif(trim($e)=='') {
-					//$this->SetLineWidth(0.1);
-					//$this->SetDrawColor(128, 128, 128);
-                    //$this->Cell($this->tdwidth,$this->tdheight,'',$this->tableborder,'',$this->tdalign,$this->tdbgcolor);
-                    $this->Cell($this->tdwidth,$this->tdheight,' ',$this->tdborder,0,$this->tdalign,$this->tdbgcolor);
-                    //$this->Cell($this->tdwidth,$this->tdheight,'',1,0,$this->tdalign,$this->tdbgcolor);
+                elseif($e=="&nbsp;") {
+                    $this->Cell($this->tdwidth,$this->tdheight,'',$this->tableborder,'',$this->tdalign,$this->tdbgcolor);
                 }
-                    //$this->Cell($this->tdwidth,$this->tdheight,$e,$this->tdborder,0,$this->tdalign,$this->tdbgcolor);
             }
             else
                 $this->Write(5,stripslashes(txtentities($e)));
@@ -165,36 +135,16 @@ function OpenTag($tag, $attr)
             break;
 
         case 'TABLE': // TABLE-BEGIN
-			if( !empty($attr['BORDER']) ) {$this->tableborder=(strpos($attr['BORDER'],'px'))?px2mm($attr['BORDER']):$attr['BORDER']; $this->tableborder=(strpos($attr['BORDER'],'%'))?pers2mm($attr['BORDER']):$attr['BORDER'];}
-			else $this->tableborder=0;
+            if( !empty($attr['BORDER']) ) $this->tableborder=$attr['BORDER'];
+            else $this->tableborder=0;
             break;
         case 'TR': //TR-BEGIN
-            if( !empty($attr['TOP']) ) $this->SetY = (strpos($attr['TOP'],'px'))?px2mm($attr['TOP']):$attr['TOP'];
-            if( !empty($attr['LEFT']) ) $this->SetX = (strpos($attr['LEFT'],'px'))?px2mm($attr['LEFT']):$attr['LEFT'];
-            if( !empty($attr['DTOP']) ) $this->SetY = $this->GetY + ((strpos($attr['DTOP'],'px'))?px2mm($attr['DTOP']):$attr['DTOP']);
-            if( !empty($attr['DLEFT']) ) $this->SetX = $this->GetX + ((strpos($attr['DLEFT'],'px'))?px2mm($attr['DLEFT']):$attr['DLEFT']);
             break;
         case 'TD': // TD-BEGIN
-            if( !empty($attr['WIDTH']) ) {$this->tdwidth=(strpos($attr['WIDTH'],'px'))?px2mm($attr['WIDTH']):$attr['WIDTH']; $this->tdwidth=(strpos($attr['WIDTH'],'%'))?pers2mm($attr['WIDTH']):$attr['WIDTH'];}
+            if( !empty($attr['WIDTH']) ) $this->tdwidth=($attr['WIDTH']/4);
             else $this->tdwidth=40; // Set to your own width if you need bigger fixed cells
-            if( !empty($attr['HEIGHT']) ) $this->tdheight=($attr['HEIGHT']);
+            if( !empty($attr['HEIGHT']) ) $this->tdheight=($attr['HEIGHT']/6);
             else $this->tdheight=6; // Set to your own height if you need bigger fixed cells
-			if( !empty($attr['BORDER']) ) {
-				$this->tdborder=$attr['BORDER'];
-			}
-			else $this->tdborder=0;
-			if( !empty($attr['BORDERWIDTH']) ) {
-				$this->SetLineWidth((strpos($attr['BORDERWIDTH'],'px'))?px2mm($attr['BORDERWIDTH']):$attr['BORDERWIDTH']); 
-				$this->SetLineWidth((strpos($attr['BORDERWIDTH'],'%'))?pers2mm($attr['BORDERWIDTH']):$attr['BORDERWIDTH']);
-			}
-			else $this->tdborder=0;
-            if( !empty($attr['BORDERCOLOR']) ) {
-                $col=hex2dec($attr['BORDERCOLOR']);
-                //$this->SetFillColor($col['R'],$col['G'],$col['B']);
-				$this->SetDrawColor($col['R'],$col['G'],$col['B']);
-				$this->tdbordercol=true;
-			}
-            else $this->tdbordercol=false; // Set to your own width if you need bigger fixed cells
             if( !empty($attr['ALIGN']) ) {
                 $align=$attr['ALIGN'];        
                 if($align=='LEFT') $this->tdalign='L';
@@ -204,11 +154,9 @@ function OpenTag($tag, $attr)
             else $this->tdalign='L'; // Set to your own
             if( !empty($attr['BGCOLOR']) ) {
                 $coul=hex2dec($attr['BGCOLOR']);
-                $this->SetFillColor($coul['R'],$coul['G'],$coul['B']);
-				//$this->SetDrawColor($coul['R'],$coul['G'],$coul['B']);
-                $this->tdbgcolor=true;
-            }
-            else $this->tdbgcolor=false; // Set to your own width if you need bigger fixed cells
+                    $this->SetFillColor($coul['R'],$coul['G'],$coul['B']);
+                    $this->tdbgcolor=true;
+                }
             $this->tdbegin=true;
             break;
 
@@ -267,10 +215,6 @@ function OpenTag($tag, $attr)
             if (isset($attr['FACE']) && in_array(strtolower($attr['FACE']), $this->fontlist) && isset($attr['SIZE']) && $attr['SIZE']!='') {
                 $this->SetFont(strtolower($attr['FACE']),'',$attr['SIZE']);
                 $this->issetfont=true;
-            }
-            if (isset($attr['SIZE']) && $attr['SIZE']!='') {
-                $this->SetFont('','',$attr['SIZE']);
-                //$this->issetfont=true;
             }
             break;
     }
@@ -342,126 +286,23 @@ function PutLink($URL, $txt)
 
 $html='You can now easily print text mixing different styles: <b>bold</b>, <i>italic</i>, <u>underlined</u>, or <b><i><u>all at once</u></i></b>!<br><br>You can also insert links on text, such as <a href="http://www.fpdf.org">www.fpdf.org</a>, or on an image: click on the logo.';
 
-//$fpdf=new FPDF('P','mm','A4');
+//$pdf=new FPDF('P','mm','A4');
 $pdf=new PDF();
-
 $pdf->AddPage();
-//$fpdf->AddPage();
-
 //$pdf->SetFont('Arial','B',14);
-
-//$pdf->AddFont('ArialMT','','arialmt.php');
-$pdf->AddFont('Calibri','','calibri.php');
-$pdf->AddFont('Calibri','B','calibrib.php');
-$pdf->AddFont('Calibri','I','calibrii.php');
-//$fpdf->AddFont('Calibri','','calibri.php');
-
-//$pdf->SetFont('ArialMT','',10);
-$pdf->SetFont('Calibri','',10);
-//$fpdf->SetFont('Calibri','',10);
-
+$pdf->AddFont('ArialMT','','arialmt.php');
+$pdf->SetFont('ArialMT','',10);
 //$pdf->Cell(40,10,'Hello World!');
-//$pdf->SetFontSize(14);
+$pdf->SetFontSize(14);
 //$pdf->WriteHTML($html);
 //
-
-
-if (isset($_REQUEST['data']) && $_REQUEST['data'] != "" && $_REQUEST['data'] != "''"){
-
-
-
 $text = $_REQUEST['data'];
-
-$text = urldecode($text);
-
-//$pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png", 12, 6, 12, 12);	
+	
 $pdf->WriteHTML($text);
-//$pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png");
 
 //$text = iconv('utf-8', 'windows-1251', $text);
 
 $pdf->Output();
-//echo $pdf->code;
-}
-else{
-
-  if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
-	$connection = mysql_connect(DBSERV, DBUSER, DBPASS);
-    if (!$connection) { 
-      echo "Ошибка подключения к базе данных. Код ошибки: ".mysqli_connect_error(); 
-      exit; 
-    } 
-
-    mysql_select_db(DBNAME) or die(mysql_error());  
-
-    $query = "SET names UTF8";
-    $result = mysql_query($query, $connection) or die(mysql_error());
-	 
-	$query = "show tables";
-	$result = mysql_query($query, $connection) or die(mysql_error());
-
-	$table = "";
-	for ($x = 0; $x < mysql_num_rows($result); $x++){
-		if ($_REQUEST['table'] == mysql_result($result, $x, 0))
-			$table = mysql_result($result, $x, 0);
-	}
-	$mark = "";
-	if ($table != ""){
-		
-      $case = "1 = 1";
-		
-	  if (isset($_REQUEST['case']) && $_REQUEST['case'] != ""){
-		  $case = $_REQUEST['case'];
-		  $case = str_replace("exit", "", $case);
-		  $case = str_replace("quit", "", $case);
-		  $case = str_replace(";", "", $case);
-		  $case = str_replace("drop", "", $case);
-		  $case = str_replace("delete", "", $case);
-		  $case = str_replace("alter", "", $case);
-		  $case = str_replace("_lteq_", "<=", $case);
-		  $case = str_replace("_gteq_", ">=", $case);
-		  $case = str_replace("_eq_", "=", $case);
-		  $case = str_replace("_lt_", "<", $case);
-		  $case = str_replace("_gt_", ">", $case);
-		  $case = str_replace("_and_", " AND ", $case);
-		  $case = str_replace("_or_", " OR ", $case);
-		  $case = str_replace("_not_", " NOT ", $case);
-		  $case = urldecode($case);
-		  $case = str_replace("_lk_", " LIKE '%", $case);
-		  if (strpos($case, "LIKE '%")>1) $case = $case."%'";
-		  
-	  //echo $table;	  
-		  
-	  $query = "SELECT data FROM $table WHERE $case LIMIT 1";
-
-        //echo $query;
-        
-	  $result = mysql_query($query, $connection) or die(mysql_error());
-
-	  $text = mysql_result($result, 0, 0);
-	  
-	  //echo $text;
-	  
-        $text = urldecode($text);
-	
-        //$pdf->Image("../wp-content/uploads/2017/11/ntz-volhov2.png", 12, 6, 12, 12);	
-        $pdf->WriteHTML($text);
-
-        //$text = iconv('utf-8', 'windows-1251', $text);
-
-        $pdf->Output();
-		//echo $pdf->code;
-	  }	  
-
-
-	}
-	
-
-  mysql_close($connection);	 	
-
-  //echo $text;
-  }
-
 }
 
 ?>

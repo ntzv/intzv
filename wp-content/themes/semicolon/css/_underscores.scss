@@ -319,6 +319,7 @@ a:active {
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	background-color: white; /*fix: фон дочернего меню*/
 	display: none;
 	float: left;
 	left: 0;

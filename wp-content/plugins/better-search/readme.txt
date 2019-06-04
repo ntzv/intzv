@@ -4,7 +4,7 @@ Contributors: webberzone, Ajay
 Donate link: https://ajaydsouza.com/donate/
 Stable tag: trunk
 Requires at least: 4.5
-Tested up to: 5.0
+Tested up to: 5.1
 License: GPLv2 or later
 
 
@@ -92,6 +92,23 @@ Know of a better profanity filter? Suggest one in the [forums](https://wordpress
 
 == Changelog ==
 
+= 2.2.4 =
+
+* Features:
+	* Searches are now tracked using Query Variables
+
+= 2.2.3 =
+
+* Bug fix:
+	* Fixed security issue. Reported by [Ryan Dewhurst](https://wpvulndb.com/vulnerabilities/9236)
+	* WHERE clause is not replaced in seamless mode
+
+= 2.2.2 =
+
+* Bug fixes:
+	* Phrase searches and searches with double quotes should now work properly
+	* Specified one instance of a missing table prefix to avoid conflicts
+
 = 2.2.1 =
 
 * Bug fixes:
@@ -163,6 +180,6 @@ For previous changelog entries, please refer to the separate changelog.txt file
 
 == Upgrade Notice ==
 
-= 2.2.1 =
-Bug fix release. For details on the update check the changelog and release post on https://webberzone.com
-
+= 2.2.4 =
+Security fix and change of tracker.
+For details on the update check the changelog and release post on https://webberzone.com

@@ -5,6 +5,11 @@
  * @package Better_Search
  */
 
+// If this file is called directly, then abort execution.
+if ( ! defined( 'WPINC' ) ) {
+	die( "Aren't you supposed to come here via WP-Admin?" );
+}
+
 /**
  * Echoes the code to wp_head
  *
@@ -17,11 +22,6 @@ function bsearch_clause_head() {
 	$output = '';
 
 	if ( $wp_query->is_search ) {
-
-		if ( bsearch_get_option( 'seamless' ) && ! is_paged() ) {
-			$search_query = get_bsearch_query();
-			$output      .= bsearch_increment_counter( $search_query );
-		}
 
 		if ( bsearch_get_option( 'meta_noindex' ) ) {
 			$output .= '<meta name="robots" content="noindex,follow" />';

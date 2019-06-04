@@ -185,7 +185,7 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 		
 //	$query = "SELECT t1.name,t1.count,t1.prim,t2.name,t2.id,t1.able,t1.time,t1.coast,t1.id,t1.session_id,t1.manager,t1.object,t1.address,t1.mail,t1.phone,t1.inn t3.naimen FROM $table t1 LEFT JOIN status_prep t2 ON t1.status = t2.id LEFT JOIN nomenklatura t3 ON t1.name = t3.naimenovanie WHERE $case";			  
 */
-	$query = "SELECT t1.name,t1.count,t1.prim,t2.name,t2.id,t1.able,t1.time,t1.coast,t1.id,t1.session_id,t1.manager,t1.object,t1.address,t1.mail,t1.phone,t1.inn, t3.naimen,t1.org,t1.number,t1.date_in,t1.id FROM $table t1 LEFT JOIN status_prep t2 ON t1.status = t2.id LEFT JOIN nomenklatura t3 ON t1.nomenid = t3.id WHERE $case";			  
+	$query = "SELECT t1.name,t1.count,t1.prim,t2.name,t2.id,t1.able,t1.time,t1.coast,t1.id,t1.session_id,t1.manager,t1.object,t1.address,t1.mail,t1.phone,t1.inn, t3.naimen,t1.org,t1.number,t1.date_in FROM $table t1 LEFT JOIN status_prep t2 ON t1.status = t2.id LEFT JOIN nomenklatura t3 ON t1.nomenid = t3.id WHERE $case";			  
 //echo $query;
 	$result = mysql_query($query, $connection) or die(mysql_error());
 
@@ -225,19 +225,16 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 		$text .= '<td><p style="color:'.$col.'">'.mysql_result($result, $n, 3).'</p></td>';
 		$text .= '<td>'.htmlspecialchars(mysql_result($result, $n, 16)).'</td>';
 		$text .= '<td class="tdsmaltxt"><p class="check">'.$selab.'<p class="check">'.$seltm.'<p class="check">'.$selct.'</td>';
-		$text .= '<td><b><a href="https://intzv.ru/crtpdf/?table=proba&case=id_eq_'.mysql_result($result, $n, 20).'">Открыть</a></b> ';
-		$text .= 'Продублировано: <b><a href="https://intzv.ru/crtpdf/?table=proba&case=id_eq_'.mysql_result($result, $n, 20).'">Открыть</a></b></td>';
+		$text .= '<td><p></p></td>';
         $text .='</tr>';
 	}
 
       $text .= '</table>';
-	  $text .= '<br />';
-	  $text .= '<a href="https://intzv.ru">Невский трансформаторный завод "Волхов"</a>';
 
 	}
 	
 $headers  = "Content-type: text/html; charset=utf-8 \r\n"; 
-$headers .= "From: <ntz-volhov@intzv.ru>\r\n"; 
+$headers .= "From: <ntz-volhov@ntz-volhov.r-host.ru>\r\n"; 
 
 //echo $text;
 

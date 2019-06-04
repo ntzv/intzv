@@ -1,6 +1,8 @@
 /* Don't forget to bump $colors_css_version for custom colors to work correctly. */
 
-$color-accent: #117bb8;
+/*fix: изменение акцентного цвета*/
+/*$color-accent: #117bb8;*/
+$color-accent: #2155bc;
 $color-text: #3a3a3a;
 
 $color-background: white;
@@ -157,7 +159,7 @@ a, a:visited, a:link {
 	.current-menu-parent,
 	.current-post-parent {
 		a {
-			border-top-color: $color-text-contrasted;
+			border-bottom-color: $color-text-contrasted; /*fix: выделение под меню*/
 		}
 	}
 }
@@ -269,7 +271,7 @@ blockquote:before {
 	}
 }
 
-.widget-area {
+/*.widget-area {
 	.sidebar-primary {
 		color: $color-foreground-on-accent;
 
@@ -288,7 +290,7 @@ blockquote:before {
 	.sidebar-secondary .widget {
 		background: rgba( $color-text-contrasted, 0.03 );
 	}
-}
+}*/
 
 .paging-navigation {
 	border-top-color: $color-text-contrasted-semi-transparent;

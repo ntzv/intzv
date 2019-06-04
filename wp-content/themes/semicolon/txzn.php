@@ -97,7 +97,7 @@ include("res2sel.php");
 			</tr>
 		</table>
 
-		<table id="b00" class="empty" style="max-width:100%;width:100%;">
+		<table id="b00" class="empty" style="max-width:100%;">
 			<tr>
 				<td colspan="5"><p><b>Вторичные обмотки</b></p></td>
 			</tr>
@@ -130,9 +130,9 @@ include("res2sel.php");
 			</tr>
 		</table>
 
-		<table id="sch" class="empty" style="max-width:100%;width:100%;">
+		<table id="sch" class="empty" style="max-width:100%;">
 			<tr>
-				<td width="10%"></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line-height:48px;width:80%;" colspan="6">Выполнить поиск</td><td onclick="createpdf(tip);" id="create" class="tdbuttonbl" style="border-left:1px solid white; height:50px;font-size:18px;line:height:48px;width:10%;">PDF документ</td>
+				<td></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line:height:48px;" colspan="6">Выполнить поиск</td><td></td>
 			</tr>
 			<tr>
 				<td width="10%" class="tdsmaltxt">Полученная конфигурация оборудования:</td><td colspan="6"><input id="sform" type="text" disabled style="width:100%;"/></td><td width="10%"></td>

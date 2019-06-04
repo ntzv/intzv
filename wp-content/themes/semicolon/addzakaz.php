@@ -57,7 +57,6 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	$phone = "";
 	$prim = "";
 	$inn = "";
-	$config = "''";
 	
 	if ($table != ""){
 		
@@ -188,9 +187,6 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	if (isset($_REQUEST["nomenid"]) && $_REQUEST["nomenid"] != ""){
 	  $nomenid = $_REQUEST["nomenid"];
 	}
-	if (isset($_REQUEST["config"]) && $_REQUEST["config"] != ""){
-	  $config = $_REQUEST["config"];
-	}
 		  		  
 //		if ($firstname != '' || $lastname != '') {$manager = $firstname.' '.$lastname;}
 
@@ -203,7 +199,7 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 			  $sesid = hash("md5", $org.microtime());
 		  }
 		  
-		  $query = "INSERT INTO $table VALUES (NULL, $name, $count, '$sesid', $manager, $objectt, $address, $mail, $phone, CURDATE(), CURDATE(), $status, $prim, $number, $able, $time, $coast, $inn, $nomenid, $org, $config)";
+		  $query = "INSERT INTO $table VALUES (NULL, $name, $count, '$sesid', $manager, $objectt, $address, $mail, $phone, CURDATE(), CURDATE(), $status, $prim, $number, $able, $time, $coast, $inn, $nomenid, $org)";
 		  //echo '<h1>query='.$query.'</h1>';
 	      $result = mysql_query($query, $connection) or die(mysql_error());
 

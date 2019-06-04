@@ -19,21 +19,29 @@ along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normali
 and Blueprint http://www.blueprintcss.org/
 */
 
-$font-headings: 'Roboto', Arial, sans-serif;
-$font-regular: 'Roboto', Arial, sans-serif;
+$font-headings: 'Open Sans', Arial, sans-serif;
+$font-regular: 'Open Sans', Arial, sans-serif;
 
 $debug: false;
 $vrhythm-debug: false;
 
+$menuheight: 116.5px;
+
 @import 'css/reset';
 @import 'css/underscores';
+/*Дополнительные стили*/
+@import 'css/addons';
+@import 'css/product';
+@import 'css/collapsingcat';
+@import 'css/podbor';
+@import 'css/search';
 
 body {
 	background: white;
 	@if $vrhythm-debug { background: url('24.png'); }
 
 	font-family: $font-regular;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 24px;
 	font-weight: 400;
 	color: #444;
@@ -66,18 +74,72 @@ h3 {
 	/* font size: 16px; */
 }
 
+
+/*add: изменение h4 для таблиц*/
+h4 {
+	@extend h3;
+	font-family: $font-regular;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+}
+
 a, a:visited, a:link {
 	text-decoration: underline;
 }
 
+/*fix: не подчеркивать ссылки в заголовках h3*/
+h3 > a, h3 > a:visited, h3 > a:link { 
+	text-decoration: none;
+}
+
 #page {
-	width: 1140px;
-	margin: 0 auto;
-	/* background: #ccc; */
+	/*fix: для прижатия подвала к низу страницы*/
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .site-header {
-	margin-top: 60px;
+	/*fix:  Исправление заголовка  */
+	border-bottom: 1px solid #ddd;
+/*	margin-top: 60px;*/
+}
+
+.header-container, .site-content, .header-breadcrumbs, .footer-sidebar  {
+	/*fix: для выравнивания внутренних элементов блоков*/
+	display: flex;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.site-content {
+	flex: 1;
+}
+
+.footer-container {
+	display: flex;
+}
+
+/*	add: для прижатия подвала к низу страницы*/
+.footer-container {
+  background: yellow;
+  flex-shrink: 0;
+}
+
+
+
+.site-branding {
+	padding: 16px 16px 16px 0px; /*fix: выравнивание логотипа*/
+	flex-shrink: 0;
+}
+
+.site-logo-wrapper {
+	float:left;
+}
+
+.site-title-container {
+	display:flex
 }
 
 .site-title {
@@ -85,11 +147,14 @@ a, a:visited, a:link {
 	font-size: 36px;
 	margin: 0;
 	padding: 0;
+/*	fix: не показывать название сайта*/
+	display: none;
 }
 
 .site-title a {
 	text-decoration: none;
 }
+
 
 .site-description {
 	font-family: $font-regular;
@@ -98,30 +163,90 @@ a, a:visited, a:link {
 	margin: 0;
 	padding: 0;
 	font-weight: 400;
+/*	fix: не показывать описание сайта*/
+	display: none;
+}
+
+.header-nav-container {
+
+	margin: 0 auto;
+
+	display: flex;
+	flex: auto;
+	justify-content: center;
+	align-items: center;
+}
+
+/*	add: панель пользователя*/
+.user-bar {
+	display: inline-block;
+	height: $menuheight;
+
+}
+/*	add: аватар пользователя*/
+.user-avatar {
+	display: inline-block;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+/*	add: имя пользователя*/
+.user-name {
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 
 .main-navigation {
-	margin-top: 48px;
-	margin-bottom: 48px;
-	border-top: solid 1px;
+ /*fix: Исправление верхнего бордюра главного меню*/
+ 	margin: auto;
+/* 	margin-top: 48px;*/
+/*	margin-bottom: 48px;*/
+	border-top: none; 
 	position: relative;
 
 	@if $debug { background: rgba(1,0,0,0.04); }
 
 	a {
 		text-decoration: none;
-		margin-top: -1px;
-		padding: 0px 20px;
-		border-top: solid 4px transparent;
-		height: 48px;
-		font-size: 16px;
-		line-height: 40px;
+		font-size: 14px; /*fix: размера шрифта главного меню*/
+		line-height: 16px;
+		display: table-cell;
+		vertical-align: middle;
+		
+		span {
+			display: inline-block;
+			margin: auto;
+		}
 	}
 
 	/* Temporarily disable submenus */
-	.sub-menu { display: none !important; }
+    /*fix: Многоуровневое меню*/
+ 	/*.sub-menu { display: none !important; }*/
 
 	.menu-toggle { display: none; }
+}
+
+.semicolon-navigation a {
+		margin-bottom: -1px; /*fix: выделение под меню*/
+		padding: 0px 20px;
+		border-bottom: solid 4px transparent; /*fix: выделение под меню*/
+		height: $menuheight; /*fix: высота меню*/
+	}
+
+.sub-menu{
+	top: $menuheight !important;
+	a {
+		padding: 20px;
+		height: auto;
+		border: none;
+		}
+}
+
+#header-user-menu {
+	width: auto;
+	flex-shrink: 0;
 }
 
 ul.semicolon-social {
@@ -258,6 +383,45 @@ hr {
 	-webkit-box-sizing: border-box;
 }
 
+h2.entry-title {
+	font-size: 18px;
+	line-height: 24px;
+	a {
+		text-decoration: none;
+		margin-bottom: 12px;
+		display: block;
+		}
+
+}
+
+/*add: Доп. стили виджет бара*/
+.widget {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+
+	li a {
+	
+		display: block;
+		padding: 8px 20px;
+		text-decoration: none;
+	}
+
+	li.current-cat a {
+		background: #3598db;
+		color: #fff;
+	}
+
+	.cat-item-1 {/*fix: скрыть рубрику "Архив"*/
+		display: none;
+	}
+}
+
+
+
 .grid .page-title {
 	@extend h2;
 	margin-top: 0;
@@ -331,9 +495,10 @@ hr {
 	}
 }
 
-.grid article {
+.grid .product { /*fix: использовать сетку только для продуктов*/
 	@include grid-item;
 }
+
 
 /* Featured images are featured in JS-mode only */
 .js.grid {
@@ -610,14 +775,14 @@ time.updated {
 }
 
 #primary {
-	width: 150px * 4 + 3 * 60;
-	float: left;
+/*	width: 150px * 4 + 3 * 60;*/
+/*	float: left;*/
 	display: block;
 	@if $debug { background: yellow; }
 }
 
 .widget-area {
-	float: right;
+	flex-shrink: 0; /*fix: не уменьшать ширину блока*/
 	width: 300px;
 
 	.sidebar-primary,
@@ -931,4 +1096,4 @@ body.admin-bar .semicolon-anchor {
 	}
 }
 
-@import 'css/respond';
+/* @import 'css/respond'; fix: временно отключить адаптивность*/

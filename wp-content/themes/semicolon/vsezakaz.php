@@ -1,17 +1,6 @@
 <?php
 include("dbconfig.php");
 
-global $current_user;
-
-$login = ($current_user->user_login)?$current_user->user_login:'';
-$organ = ($current_user->org_name)?$current_user->org_name:'';
-$innal = ($current_user->inn_name)?$current_user->inn_name:'';
-$facen = ($current_user->first_name)?($current_user->first_name):'';
-$facen .= ($current_user->last_name)?(' '.$current_user->last_name):'';
-$phone = ($current_user->phone_name)?$current_user->phone_name:'';
-$postn = ($current_user->post_name)?$current_user->post_name:'';
-
-if ($login == 'ntz-volhov') $innal = '1111111111';
 	
 if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	$connection = mysql_connect(DBSERV, DBUSER, DBPASS);
@@ -144,11 +133,8 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	  $org = str_replace("alter", "", $org);
 	  $org = str_replace("_eq_", "=", $org);
 	  $org = str_replace("__", " ", $org);
-	  //$org = 'org='.$org;
+	  $org = 'org='.$org;
 	}
-	else{
-		$org = $organ;
-	}		
 
 	if (isset($_REQUEST["inn"]) && $_REQUEST["inn"] != ""){
 	  $inn = $_REQUEST["inn"];
@@ -160,19 +146,17 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	  $inn = str_replace("alter", "", $inn);
 	  $inn = str_replace("_eq_", "=", $inn);
 	  $inn = str_replace("__", " ", $inn);
-	  //$inn = $innal;
+	  //$inn = 'inn='.$inn.',';
 	}
 	else{
-		$inn = $innal;
-	}		
+		
 ?>
-Ваша организация:<input type="text" value="<?php echo $org;?>" id="org0" />
-Ваш ИНН:<input type="text" value="<?php echo $inn;?>" id="inn0" />
-<div onclick="vse();" class="tdbuttonor" style="width:170px;height:50px;font-size:18px;display:none;">Передать</div>
+Введите ИНН:<input type="text" value="" id="inn0" />
+<div onclick="vse();" class="tdbuttonor" style="width:170px;height:50px;font-size:18px;">Передать</div>
 <br>
 <?php
 
-
+	}
 
 //текущая сессия session_id передан в запросе
 	if (isset($_REQUEST["sesid"]) && ($_REQUEST["sesid"] != "")){
@@ -202,28 +186,28 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	else{
 		
 //новая сессия session_id передан в cookies
-	  if ( isset($_COOKIE["session_id"]) && ($_COOKIE["session_id"] !="") || true){
+	  if ( isset($_COOKIE["session_id"]) && ($_COOKIE["session_id"] !="")){
 			
 		$sesid = $_COOKIE["session_id"];
 		$sesid = str_replace("\'", "'", $sesid);
 		  
-		//$query = "SELECT inn FROM proba WHERE session_id = $sesid LIMIT 1";
+		$query = "SELECT inn FROM proba WHERE session_id = $sesid LIMIT 1";
 
-		//$result = mysql_query($query, $connection) or die(mysql_error()); 
+		$result = mysql_query($query, $connection) or die(mysql_error()); 
 		  
-		//echo 'Найден ИНН по Вашим данным<br />';
+		echo 'Найден ИНН по Вашим данным<br />';
 
-		//if (mysql_num_rows($result) > 0){
+		if (mysql_num_rows($result) > 0){
 			
-		  //$_inn = mysql_result($result, 0); $_inn = "'$_inn'"; $_inn = "'$innal'";
+		  $_inn = mysql_result($result, 0); $_inn = "'$_inn'";
 		
-		  //if ($inn == $_inn){
-			$text = zapoln($connection, $inn, $table);
-		  //}
-		//}  
-		//else{
-		//	$text = 'По Вашим регистрационным данным ничего не нашлось';
-		//}
+		  if ($inn == $_inn){
+			$text = zapoln($connection, $_inn, $table);
+		  }
+		}  
+		else{
+			$text = 'По Вашим регистрационным данным ничего не нашлось';
+		}
 		
 	  }
 	}
@@ -253,20 +237,20 @@ function zapoln($connection, $_inn, $table){
 			
 			  $num = mysql_result($result0, $m, 0);
 				
+			  $num = ($num == '')?'Номер не присвоен':$num;
 				
 			  $stat = mysql_result($result0, $m, 2);
 				
 			  $stat = ($stat == '')?'Статус неизвестен':$stat;
 				
-		      $query = "SELECT t1.name,t1.count,t1.prim,t2.name,t2.id,t1.able,t1.time,t1.coast,t1.id,t1.session_id,t1.manager,t1.object,t1.address,t1.mail,t1.phone,t1.inn, t3.naimen, t1.org, t1.number, t1.date_in,t1.id FROM proba t1 LEFT JOIN status_prep t2 ON t1.status = t2.id LEFT JOIN nomenklatura t3 ON t1.nomenid = t3.id WHERE inn = $_inn AND number='$num'";			  
-	
+		      $query = "SELECT t1.name,t1.count,t1.prim,t2.name,t2.id,t1.able,t1.time,t1.coast,t1.id,t1.session_id,t1.manager,t1.object,t1.address,t1.mail,t1.phone,t1.inn, t3.naimen, t1.org, t1.number, t1.date_in FROM $table t1 LEFT JOIN status_prep t2 ON t1.status = t2.id LEFT JOIN nomenklatura t3 ON t1.nomenid = t3.id WHERE inn = $_inn AND number='$num'";			  
+	//echo $query;
 
 		      $result = mysql_query($query, $connection) or die(mysql_error());
 
 		      //$rov = mysql_fetch_array($result, MYSQL_NUM);
 		      $n = 0;
-			  $num = ($num == '')?'Номер не присвоен':$num;
-
+			  
 			  $text .= '<li style="max-width:100%;"><input id="zap'.$m.'" type="checkbox" style="display:none;" onchange="(this.checked)?$(\'#tap'.$m.'\').css(\'display\', \'block\'):$(\'#tap'.$m.'\').css(\'display\', \'none\');" /><label for="zap'.$m.'">Заказ: '.mysql_result($result0, $m, 0).'....... Статус заказа: '.$stat.'</label>';
 			  
 		      $text .= '<table id="tap'.$m.'" style="display:none;border-collapse:collapse;border:1px solid gray;max-width:100%;font-size:12px;line-height:16px;" border="1px">';
@@ -301,8 +285,7 @@ function zapoln($connection, $_inn, $table){
 			      $text .= '<td style="line-height:16px;"><p style="line-height:16px;color:'.$col.'">'.mysql_result($result, $n, 3).'</p></td>';
 			      $text .= '<td style="line-height:16px;">'.htmlspecialchars(mysql_result($result, $n, 16)).'</td>';
 			      $text .= '<td style="line-height:16px;" class="tdsmaltxt">'.$selab.' '.$seltm.' '.$selct.'</td>';
-		$text .= '<td><b><a href="https://intzv.ru/crtpdf/?table=proba&case=id_eq_'.mysql_result($result, $n, 20).'" target="_blank">Открыть</a></b> ';
-		$text .= 'Продублировано: <b><a href="https://intzv.ru/crtpdf/?table=proba&case=id_eq_'.mysql_result($result, $n, 20).'" target="_blank">Открыть</a></b></td>';
+			      $text .= '<td style="line-height:16px;"><p></p></td>';
         	      $text .='</tr>';
 				}
 		      }

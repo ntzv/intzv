@@ -1,0 +1,578 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"li",
+				"list-style\tproperty"
+			],
+			[
+				"pro",
+				"product"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
+				"flo",
+				"float\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "|+| \"current_user_can('administrator')\"\n",
+			"settings":
+			{
+				"buffer_size": 40,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "=> C:\\wamp64\\www\\wp-content\\themes\\semicolon\\functions.php\n\t|+| 966\n",
+			"settings":
+			{
+				"buffer_size": 68,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"prv ",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"bui",
+				"Build With: SASS - Compressed"
+			],
+			[
+				"sett",
+				"Preferences: Settings"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"settin",
+				"Preferences: Settings"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"syn",
+				"Set Syntax: Sass"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp64/www/wp-content/themes/semicolon"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/wp-content/themes/semicolon/functions.php",
+		"/C/wamp64/www/wp-settings.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/theme.sublime-project",
+		"/C/wamp64/www/wp-content/themes/semicolon/style.scss",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/Users/2/AppData/Local/Temp/scp44149/domains/intzv.ru/wp-content/themes/semicolon/functions.php",
+		"/C/Users/2/AppData/Local/Temp/scp41869/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/modules/user-moderation/user-moderation.php",
+		"/C/Users/2/AppData/Local/Temp/scp06699/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/includes/class-theme-my-login-common.php",
+		"/C/Users/2/AppData/Local/Temp/scp40319/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/modules/custom-email/custom-email.php",
+		"/C/Users/2/AppData/Local/Temp/scp02668/domains/intzv.ru/wp-content/uploads/doc/sertifikat-ob-utverzhdenii-tipa-sredstv-izmerenij-rb-nali-ntz.pdf",
+		"/C/wamp64/www/wp-content/themes/semicolon/page-794.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/category.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/index.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_product.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_collapsingcat.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_collapsingcat.css",
+		"/C/wamp64/www/wp-content/themes/semicolon/_collapsingcat.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_podbor.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_addons.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/colors.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/colors.css",
+		"/C/wamp64/www/wp-content/themes/semicolon/inc/template-tags.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/page.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/content-page.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/content-single.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/content.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/single.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/fpdf.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/404.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/page-2030.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/header.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/page-414.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/footer.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/podbor.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/page-144.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/tol.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/dbconfig.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/res2sel.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/harakter.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/dopoln.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/dbpage.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/cnt2var.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/controls.php",
+		"/C/Users/2/AppData/Local/Temp/scp55456/domains/intzv.ru/wp-content/themes/semicolon/dbconfig.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/single-product.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/breadcrumbs.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/admin/class-ntz-products-admin.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/ntz-products.php",
+		"/C/Users/2/AppData/Local/Temp/scp42734/domains/intzv.ru/wp-content/themes/semicolon/tol.js",
+		"/C/wamp64/www/wp-content/themes/semicolon/content-products.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/taxonomy-type.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/taxonomy-voltclass.php",
+		"/C/Users/2/AppData/Local/Temp/scp06453/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/content-product.php",
+		"/C/Users/2/AppData/Local/Temp/scp18423/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/style.css",
+		"/C/Users/2/AppData/Local/Temp/scp10563/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/chars1.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/product.scss",
+		"/C/wamp64/www/wp-content/plugins/wedocs/assets/css/frontend.css",
+		"/C/wamp64/www/wp-content/themes/semicolon/content-product.php",
+		"/C/wamp64/www/wp-content/plugins/wp-catalogue/wpc-catalogue.php",
+		"/C/wamp64/www/wp-content/plugins/wp-catalogue/includes/db-settings.php",
+		"/C/wamp64/www/wp-content/plugins/wp-catalogue/products/sort-products.php",
+		"/C/wamp64/www/wp-content/plugins/wp-catalogue/products/wpc-product.php",
+		"/C/wamp64/www/wp-content/plugins/wp-catalogue/uninstall.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/core/class-documentation.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/core/boot.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/ext/class-documentation-post-type.php",
+		"/C/Users/2/AppData/Local/Temp/scp00256/domains/intzv.ru/wp-content/themes/semicolon/tol.js",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/includes/class-ntz-products-activator.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/includes/class-ntz-products-deactivator.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/includes/class-ntz-products.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/includes/class-ntz-products-loader.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/ext/class-documentation-taxonomy.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/documentation.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/views/class-documentation-walker-document.php",
+		"/C/wamp64/www/wp-content/plugins/documentation/lib/core/class-documentation-search.php",
+		"/C/wamp64/www/wp-content/plugins/wedocs/templates/content-feedback.php",
+		"/C/wamp64/www/wp-content/plugins/wedocs/includes/functions.php",
+		"/C/wamp64/www/wp-content/plugins/ntz-products/public/class-ntz-products-public.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/single-docs.php",
+		"/C/Users/2/AppData/Local/Temp/scp21477/domains/intzv.ru/wp-content/themes/semicolon/tol.php",
+		"/C/Users/2/AppData/Local/Temp/scp22207/domains/intzv.ru/wp-content/themes/semicolon/tol.js",
+		"/C/Users/2/AppData/Local/Temp/scp12556/domains/intzv.ru/wp-content/themes/semicolon/res2sel.php",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/User/SublimeOnSaveBuild.sublime-settings",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_underscores.scss",
+		"/C/wamp64/www/wp-content/plugins/wedocs/templates/single-docs.php",
+		"/C/wamp64/www/wp-content/plugins/wedocs/includes/class-theme-support.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/js/semicolon.js",
+		"/C/wamp64/www/wp-content/themes/semicolon/js/skip-link-focus-fix.js",
+		"/C/wamp64/www/wp-content/themes/semicolon/js/customizer.js",
+		"/C/wamp64/bin/apache/apache2.4.33/conf/httpd.conf",
+		"/C/Users/2/AppData/Local/Temp/scp41826/domains/intzv.ru/wp-content/themes/semicolon/theme-my-login.php",
+		"/C/Users/2/AppData/Local/Temp/scp37367/domains/intzv.ru/wp-content/themes/semicolon/page-2030.php",
+		"/C/Users/2/AppData/Local/Temp/scp44916/domains/intzv.ru/wp-content/themes/semicolon/analogs.php",
+		"/C/Users/2/AppData/Local/Temp/scp41657/domains/intzv.ru/wp-content/themes/semicolon/users.php",
+		"/C/Users/2/AppData/Local/Temp/scp37776/domains/intzv.ru/wp-content/themes/semicolon/podbor.php",
+		"/C/Users/2/AppData/Local/Temp/scp36386/domains/intzv.ru/wp-content/themes/semicolon/nali.php",
+		"/C/Users/2/Desktop/style.css",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/User/dart-sass.sublime-build",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/SASS Build/SASS - Compressed.sublime-build",
+		"/C/Users/2/AppData/Local/Temp/scp29077/domains/intzv.ru/wp-content/themes/semicolon/header.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/semicolon.zip",
+		"/C/wamp64/www/wp-content/themes/semicolon/style.css",
+		"/C/Users/2/AppData/Local/Temp/scp06752/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/plugins/wedocs/templates/single-docs.php",
+		"/C/Users/2/AppData/Local/Temp/scp06604/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/modules/custom-passwords/custom-passwords.php",
+		"/C/Users/2/AppData/Local/Temp/scp47621/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/modules/custom-email/custom-email.php",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_respond.scss",
+		"/C/wamp64/www/wp-content/themes/semicolon/css/_reset.scss",
+		"/C/Users/2/AppData/Local/Temp/scp05944/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/plugins/wedocs/templates/docs-sidebar.php",
+		"/C/Users/2/AppData/Local/Temp/scp09457/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/languages/theme-my-login.pot",
+		"/C/Users/2/AppData/Local/Temp/scp53075/domains/intzv.ru/wp-content/plugins/theme-my-login-6.4/modules/user-moderation/user-moderation.php",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/SublimeOnSaveBuild/SublimeOnSaveBuild.sublime-settings",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/C/Users/2/AppData/Roaming/Sublime Text 3/Packages/User/CSS.sublime-settings",
+		"/C/Users/2/AppData/Local/Temp/scp33266/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/footer.php",
+		"/C/Users/2/AppData/Local/Temp/scp34936/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/functions.php",
+		"/C/Users/2/AppData/Local/Temp/scp37050/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/style.css",
+		"/C/Users/2/AppData/Local/Temp/scp50926/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/page.php",
+		"/C/Users/2/AppData/Local/Temp/scp50989/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/page-794.php",
+		"/C/Users/2/AppData/Local/Temp/scp52876/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/content-single.php",
+		"/C/Users/2/AppData/Local/Temp/scp51036/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/single.php",
+		"/C/Users/2/Documents/Тех.сайт/Для библиотеки/3D/3d-tol-ntz-10-21.zip",
+		"/C/Users/2/AppData/Local/Temp/scp49677/domains/intzv.ru/wp-content/uploads/so-css/so-css-semicolon.css",
+		"/C/Users/2/AppData/Local/Temp/scp57096/domains/intzv.ru/wp-content/uploads/ti/0.ntz.135-017-ti-ol-ntz-0.63(1.25)-6(10;20;35).pdf",
+		"/C/Users/2/AppData/Local/Temp/scp50092/domains/intzv.ru/wp-content/themes/semicolon/style.css",
+		"/C/Users/2/AppData/Local/Temp/scp52002/domains/intzv.ru/wp-content/uploads/so-css/so-css-semicolon.css",
+		"/C/Users/2/AppData/Local/Temp/scp22318/home/virtwww/w_ntz-volhov_5cd59895/http/wp-content/themes/semicolon/res2sel.php"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 204.0
+	},
+	"output.find_results":
+	{
+		"height": 30.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/dart-sass.sublime-build",
+	"project": "theme.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"restore_index":
+			{
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 173.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

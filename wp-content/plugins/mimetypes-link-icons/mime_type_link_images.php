@@ -315,6 +315,7 @@ if ( ! class_exists( 'Mime_Types_Link_Icons' ) ) {
 		 */
 		public $debug = false;
 
+	    private static $instance;
 
 
 		/* *** PLUGIN INITIALIZATION METHODS *** */
@@ -360,6 +361,13 @@ if ( ! class_exists( 'Mime_Types_Link_Icons' ) ) {
 		}
 
 
+
+	    public static function instance() {
+	        if ( ! isset( self::$instance ) ) {
+	            self::$instance = new self;
+	        }
+	        return self::$instance;
+	    }
 
 
 		/** ******************* OPTION MANAGEMENT ******************* **/
@@ -1327,7 +1335,7 @@ if ( ! class_exists( 'Mime_Types_Link_Icons' ) ) {
 		 * @param   string  $url
 		 * @return  bool|string filesize string or false if no filesize could be determined
 		 */
-		private function get_filesize( $url ) {
+		public function get_filesize( $url ) {
 			static $has_cache = false;
 
 			// Efficiency - only retrieve the cache once
@@ -2252,3 +2260,9 @@ if ( ! class_exists( 'Mime_Types_Link_Icons' ) ) {
 	register_activation_hook( __FILE__, array( 'Mime_Types_Link_Icons', 'activate' ) );
 
 } /* End of class-exists wrapper */
+
+
+function MTLI() {
+	return Mime_Types_Link_Icons::instance();
+}
+$mtli = MTLI();

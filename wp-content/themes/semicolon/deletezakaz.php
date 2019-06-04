@@ -73,24 +73,23 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 
 		$query = "SELECT inn FROM $table WHERE number=$number LIMIT 1";
 
-//echo $query.'<br />';
 	    $result = mysql_query($query, $connection) or die(mysql_error());
 		
 		$inn = mysql_result($result, 0, 0);
 		
 
 		$query = "SELECT session_id FROM $table WHERE inn=$inn ORDER BY id DESC LIMIT 1";
-//echo $query.'<br />';
+
 	    $result = mysql_query($query, $connection) or die(mysql_error());
 		
 		$sesid = "'".mysql_result($result, 0, 0)."'";
 
-		if ($sesid != "''") {setcookie("session_id", htmlspecialchars($sesid), time()+60*60*24*1100, "/", "intzv.ru", 1);}
+		if ($sesid != "''") {setcookie("session_id", htmlspecialchars($sesid), time()+60*60*24*1100, "/", "ntz-volhov.r-host.ru", 1);}
 
 
 		$query = "DELETE FROM $table WHERE number=$number";
 
-//echo $query;
+
 	    $result = mysql_query($query, $connection) or die(mysql_error());
 
 	  }

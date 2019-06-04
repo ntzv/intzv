@@ -1,0 +1,17 @@
+ul.collapsing.categories {
+	margin: 0;
+	list-style: none;
+}
+
+li.collapsing.categories > div > ul {
+	margin: 0 0.5em;
+	list-style: none;
+}
+
+li.collapsing.categories.item::before {
+	color: #fff;
+}
+
+li.collapsing.categories.active > a {
+	font-weight: 800;
+}

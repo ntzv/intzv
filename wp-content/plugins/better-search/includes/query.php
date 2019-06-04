@@ -5,6 +5,11 @@
  * @package Better_Search
  */
 
+// If this file is called directly, then abort execution.
+if ( ! defined( 'WPINC' ) ) {
+	die( "Aren't you supposed to come here via WP-Admin?" );
+}
+
 /**
  * Returns an array with the first and last indices to be displayed on the page.
  *
@@ -90,6 +95,8 @@ function bsearch_posts_match_field( $search_query, $args = array() ) {
 	$weight_content = bsearch_get_option( 'weight_content' );
 	$boolean_mode   = $args['boolean_mode'];
 
+	$search_query   = str_replace( '&quot;', '"', $search_query );
+
 	// Create the base MATCH part of the FIELDS clause.
 	if ( $args['use_fulltext'] ) {
 		$field_args = array(
@@ -102,6 +109,7 @@ function bsearch_posts_match_field( $search_query, $args = array() ) {
 		$field_score  = ", (MATCH({$wpdb->posts}.post_title) AGAINST ('%s' {$boolean_mode} ) * %d ) + ";
 		$field_score .= "(MATCH({$wpdb->posts}.post_content) AGAINST ('%s' {$boolean_mode} ) * %d ) ";
 		$field_score  = $wpdb->prepare( $field_score, $field_args ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$field_score  = stripslashes( $field_score );
 	} else {
 		$field_score = ', 0 ';
 	}
@@ -139,7 +147,7 @@ function bsearch_posts_fields( $search_query, $args = array() ) {
 	// Parse incomming $args into an array and merge it with $defaults.
 	$args = wp_parse_args( $args, bsearch_query_default_args() );
 
-	$fields = ' ID';
+	$fields = " {$wpdb->posts}.ID as ID";
 
 	$fields .= bsearch_posts_match_field( $search_query, $args );
 
@@ -174,10 +182,13 @@ function bsearch_posts_match( $search_query, $args = array() ) {
 
 	$boolean_mode = $args['boolean_mode'];
 
+	$search_query   = str_replace( '&quot;', '"', $search_query );
+
 	// Construct the MATCH part of the WHERE clause.
 	$match = " AND MATCH ({$wpdb->posts}.post_title,{$wpdb->posts}.post_content) AGAINST ('%s' {$boolean_mode} ) ";
 
 	$match = $wpdb->prepare( $match, $search_query ); //phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+	$match = stripslashes( $match );
 
 	/**
 	 * Filter the MATCH clause of the query.

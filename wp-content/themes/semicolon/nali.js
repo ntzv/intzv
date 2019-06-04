@@ -30,27 +30,6 @@ tip = t.options[t.selectedIndex].value;
 
 $('#klass').html('<p>'+t.options[t.selectedIndex].text+'</p>');
 
-  $('.help').click(function(){	
-	var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	var height = $(window).height();
-	var top = Math.ceil(scrollTop + (height - $('#msg').outerHeight())/2);
-	var mes = '';  
-	tag = this.childNodes[0].textContent; 
-	for (i = 0; i < help.length; i++){
-		if (help[i][0] == tag && (help[i][2] == 2 || help[i][2] == 3)) {mes = help[i][1];}
-	}  
-	//$('#msg').css('left', Math.ceil(($(window).width() - $('#msg').outerWidth())/2));  
-	//$('#msg').css('top', Math.ceil((scrollTop + document.body.clientHeight - $('#msg').outerHeight())/2));  
-	$('#msg').css('top', top);  
-	$('#msgname').html(tag);
-	$('#msgtext').html(mes);
-	//alert(Math.ceil(($(window).width() - $('#msg').outerWidth())/2)) ; 
-	$('#msg').css('display','block');
-	//alert(mes);
-	//for (a in this.childNodes[0]) {alert(a) ;} 
-	return false;
-  });	
-
 if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 	if (document.getElementById('rowvyv')) {document.getElementById('rowvyv').style.display = 'table-row';}
 	if (tip == 7 || tip == 8) {
@@ -303,11 +282,11 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			if (max_m == 630) $('#d_vtor_a_51').attr('max',100);
 			$('#d_vtor_a_51').attr('min',10);
 		}
-		if ($('#vtor_v_5 option:selected').text() == '1') {
+		if ($('#vtor_v_5 option:selected').text() == '1.0') {
 			$('#d_vtor_a_51').attr('max',200);
 			$('#d_vtor_a_51').attr('min',20);
 		}
-		if ($('#vtor_v_5 option:selected').text() == '3') {
+		if ($('#vtor_v_5 option:selected').text() == '3.0') {
 			$('#d_vtor_a_51').attr('max',300);
 			$('#d_vtor_a_51').attr('min',100);
 		}
@@ -321,11 +300,11 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#d_vtor_a_51').attr('max',150);
 			$('#d_vtor_a_51').attr('min',20);
 		}
-		if ($('#vtor_v_5 option:selected').text() == '1') {
+		if ($('#vtor_v_5 option:selected').text() == '1.0') {
 			$('#d_vtor_a_51').attr('max',200);
 			$('#d_vtor_a_51').attr('min',50);
 		}
-		if ($('#vtor_v_5 option:selected').text() == '3') {
+		if ($('#vtor_v_5 option:selected').text() == '3.0') {
 			$('#d_vtor_a_51').attr('max',300);
 			$('#d_vtor_a_51').attr('min',150);
 		}
@@ -480,7 +459,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			}
 		}
 	  }
-	  if ($('#vtor_v_6 option:selected').text() == '1') {
+	  if ($('#vtor_v_6 option:selected').text() == '1.0') {
 		$('#d_vtor_a_61').attr('max', 200 - $(this).val());
 		$('#id_vtor_a_6max').val(200 - $(this).val());
 		if (napr == 20 || (napr == 6 && gab == '02') || (napr == 6 && gab == '03') || (napr == 10 && gab == '02') || (napr == 10 && gab == '03')) {
@@ -516,10 +495,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			}
 		}
 	  }
-	  if ($('#vtor_v_6 option:selected').text() == '3') {
+	  if ($('#vtor_v_6 option:selected').text() == '3.0') {
 		$('#d_vtor_a_61').attr('max', 300 - $(this).val());
 		$('#id_vtor_a_6max').val(300 - $(this).val());
-		if ($('#vtor_v_5 option:selected').text() == '1') {
+		if ($('#vtor_v_5 option:selected').text() == '1.0') {
 			$('#d_vtor_a_61').attr('max', 200 - $(this).val());
 			$('#id_vtor_a_6max').val(200 - $(this).val());
 			if (napr == 20 || (napr == 6 && gab == '02') || (napr == 6 && gab == '03') || (napr == 10 && gab == '02') || (napr == 10 && gab == '03')) {
@@ -600,7 +579,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			}
 		}
 	}
-	if ($('#vtor_v_5 option:selected').text() == '1') {
+	if ($('#vtor_v_5 option:selected').text() == '1.0') {
 		$('#d_vtor_a_51').attr('max', 200 - $(this).val());
 		$('#id_vtor_a_5max').val(200 - $(this).val());
 		if (napr == 20 || (napr == 6 && gab == '02') || (napr == 6 && gab == '03') || (napr == 10 && gab == '02') || (napr == 10 && gab == '03')) {
@@ -636,10 +615,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			}
 		}
 	}
-	if ($('#vtor_v_5 option:selected').text() == '3') {
+	if ($('#vtor_v_5 option:selected').text() == '3.0') {
 		$('#d_vtor_a_51').attr('max', 300 - $(this).val());
 		$('#id_vtor_a_5max').val(300 - $(this).val());
-		if ($('#vtor_v_6 option:selected').text() == '1') {
+		if ($('#vtor_v_6 option:selected').text() == '1.0') {
 			$('#d_vtor_a_51').attr('max', 200 - $(this).val());
 			$('#id_vtor_a_5max').val(200 - $(this).val());
 			if (napr == 20 || (napr == 6 && gab == '02') || (napr == 6 && gab == '03') || (napr == 10 && gab == '02') || (napr == 10 && gab == '03')) {
@@ -695,7 +674,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(40 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '1') {
+	  if ($('#vtor_v_4 option:selected').text() == '1.0') {
 		$('#d_vtor_a_41').attr('max', 200 - $(this).val());
 		$('#id_vtor_a_4max').val(200 - $(this).val());
 		if ($('#vtor_v_3 option:selected').text() == '0.5') {
@@ -707,10 +686,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(40 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '3') {
-		$('#d_vtor_a_41').attr('max', 300 - $(this).val)
+	  if ($('#vtor_v_4 option:selected').text() == '3.0') {
+		$('#d_vtor_a_41').attr('max', 300 - $(this).val());
 		$('#id_vtor_a_4max').val(300 - $(this).val());
-		if ($('#vtor_v_3 option:selected').text() == '1') {
+		if ($('#vtor_v_3 option:selected').text() == '1.0') {
 			$('#d_vtor_a_41').attr('max', 200 - $(this).val());
 			$('#id_vtor_a_4max').val(200 - $(this).val());
 		}
@@ -739,7 +718,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(50 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '1') {
+	  if ($('#vtor_v_4 option:selected').text() == '1.0') {
 		$('#d_vtor_a_41').attr('max', 250 - $(this).val());
 		$('#id_vtor_a_4max').val(250 - $(this).val());
 		if ($('#vtor_v_3 option:selected').text() == '0.5') {
@@ -751,10 +730,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(50 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '3') {
+	  if ($('#vtor_v_4 option:selected').text() == '3.0') {
 		$('#d_vtor_a_41').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_4max').val(400 - $(this).val());
-		if ($('#vtor_v_3 option:selected').text() == '1') {
+		if ($('#vtor_v_3 option:selected').text() == '1.0') {
 			$('#d_vtor_a_41').attr('max', 250 - $(this).val());
 			$('#id_vtor_a_4max').val(250 - $(this).val());
 		}
@@ -783,7 +762,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(60 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '1') {
+	  if ($('#vtor_v_4 option:selected').text() == '1.0') {
 		$('#d_vtor_a_41').attr('max', 250 - $(this).val());
 		$('#id_vtor_a_4max').val(250 - $(this).val());
 		if ($('#vtor_v_3 option:selected').text() == '0.5') {
@@ -795,10 +774,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(60 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '3') {
+	  if ($('#vtor_v_4 option:selected').text() == '3.0') {
 		$('#d_vtor_a_41').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_4max').val(400 - $(this).val());
-		if ($('#vtor_v_3 option:selected').text() == '1') {
+		if ($('#vtor_v_3 option:selected').text() == '1.0') {
 			$('#d_vtor_a_41').attr('max', 250 - $(this).val());
 			$('#id_vtor_a_4max').val(250 - $(this).val());
 		}
@@ -827,7 +806,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(75 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '1') {
+	  if ($('#vtor_v_4 option:selected').text() == '1.0') {
 		$('#d_vtor_a_41').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_4max').val(400 - $(this).val());
 		if ($('#vtor_v_3 option:selected').text() == '0.5') {
@@ -839,10 +818,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_4max').val(75 - $(this).val());
 		}
 	  }
-	  if ($('#vtor_v_4 option:selected').text() == '3') {
+	  if ($('#vtor_v_4 option:selected').text() == '3.0') {
 		$('#d_vtor_a_41').attr('max', 600 - $(this).val());
 		$('#id_vtor_a_4max').val(600 - $(this).val());
-		if ($('#vtor_v_3 option:selected').text() == '1') {
+		if ($('#vtor_v_3 option:selected').text() == '1.0') {
 			$('#d_vtor_a_41').attr('max', 400 - $(this).val());
 			$('#id_vtor_a_4max').val(400 - $(this).val());
 		}
@@ -875,7 +854,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(40 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '1') {
+	if ($('#vtor_v_3 option:selected').text() == '1.0') {
 		$('#d_vtor_a_31').attr('max', 200 - $(this).val());
 		$('#id_vtor_a_3max').val(200 - $(this).val());
 		if ($('#vtor_v_4 option:selected').text() == '0.5') {
@@ -887,10 +866,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(40 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '3') {
+	if ($('#vtor_v_3 option:selected').text() == '3.0') {
 		$('#d_vtor_a_31').attr('max', 300 - $(this).val());
 		$('#id_vtor_a_3max').val(300 - $(this).val());
-		if ($('#vtor_v_4 option:selected').text() == '1') {
+		if ($('#vtor_v_4 option:selected').text() == '1.0') {
 			$('#d_vtor_a_31').attr('max', 200 - $(this).val());
 			$('#id_vtor_a_3max').val(200 - $(this).val());
 		}
@@ -917,7 +896,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(50 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '1') {
+	if ($('#vtor_v_3 option:selected').text() == '1.0') {
 		$('#d_vtor_a_31').attr('max', 250 - $(this).val());
 		$('#id_vtor_a_3max').val(250 - $(this).val());
 		if ($('#vtor_v_4 option:selected').text() == '0.5') {
@@ -929,10 +908,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(50 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '3') {
+	if ($('#vtor_v_3 option:selected').text() == '3.0') {
 		$('#d_vtor_a_31').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_3max').val(400 - $(this).val());
-		if ($('#vtor_v_4 option:selected').text() == '1') {
+		if ($('#vtor_v_4 option:selected').text() == '1.0') {
 			$('#d_vtor_a_31').attr('max', 250 - $(this).val());
 			$('#id_vtor_a_3max').val(250 - $(this).val());
 		}
@@ -959,7 +938,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(60 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '1') {
+	if ($('#vtor_v_3 option:selected').text() == '1.0') {
 		$('#d_vtor_a_31').attr('max', 250 - $(this).val());
 		$('#id_vtor_a_3max').val(250 - $(this).val());
 		if ($('#vtor_v_4 option:selected').text() == '0.5') {
@@ -971,10 +950,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(60 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '3') {
+	if ($('#vtor_v_3 option:selected').text() == '3.0') {
 		$('#d_vtor_a_31').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_3max').val(400 - $(this).val());
-		if ($('#vtor_v_4 option:selected').text() == '1') {
+		if ($('#vtor_v_4 option:selected').text() == '1.0') {
 			$('#d_vtor_a_31').attr('max', 250 - $(this).val());
 			$('#id_vtor_a_3max').val(250 - $(this).val());
 		}
@@ -1001,7 +980,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(75 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '1') {
+	if ($('#vtor_v_3 option:selected').text() == '1.0') {
 		$('#d_vtor_a_31').attr('max', 400 - $(this).val());
 		$('#id_vtor_a_3max').val(400 - $(this).val());
 		if ($('#vtor_v_4 option:selected').text() == '0.5') {
@@ -1013,10 +992,10 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 			$('#id_vtor_a_3max').val(75 - $(this).val());
 		}
 	}
-	if ($('#vtor_v_3 option:selected').text() == '3') {
+	if ($('#vtor_v_3 option:selected').text() == '3.0') {
 		$('#d_vtor_a_31').attr('max', 600 - $(this).val());
 		$('#id_vtor_a_3max').val(600 - $(this).val());
-		if ($('#vtor_v_4 option:selected').text() == '1') {
+		if ($('#vtor_v_4 option:selected').text() == '1.0') {
 			$('#d_vtor_a_31').attr('max', 400 - $(this).val());
 			$('#id_vtor_a_3max').val(400 - $(this).val());
 		}
@@ -1052,7 +1031,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',50); $('#id_vtor_a_5max').val(50);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',50); $('#id_vtor_a_5min').val(50);
 						$('#d_vtor_a_51').attr('max',150); $('#id_vtor_a_5max').val(150);
 						$('#id_vtor_a_5').val(50);
@@ -1071,12 +1050,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',150); $('#id_vtor_a_5max').val(150);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',250); $('#id_vtor_a_5max').val(250);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1107,7 +1086,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1131,14 +1110,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1179,12 +1158,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',100); $('#id_vtor_a_5max').val(100);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',200); $('#id_vtor_a_5max').val(200);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1215,7 +1194,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1239,14 +1218,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1288,12 +1267,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',150); $('#id_vtor_a_5max').val(150);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',250); $('#id_vtor_a_5max').val(250);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1324,7 +1303,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1348,14 +1327,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1397,12 +1376,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',200); $('#id_vtor_a_5max').val(200);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1433,7 +1412,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1457,14 +1436,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1513,11 +1492,11 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_61').attr('min',20);
 						$('#d_vtor_a_61').attr('max',50);
 					}
-					if ($('#vtor_v_6 option:selected').text() == '1') {
+					if ($('#vtor_v_6 option:selected').text() == '1.0') {
 						$('#d_vtor_a_61').attr('min',50);
 						$('#d_vtor_a_61').attr('max',150);
 					}
-					if ($('#vtor_v_6 option:selected').text() == '3') {
+					if ($('#vtor_v_6 option:selected').text() == '3.0') {
 						$('#d_vtor_a_61').attr('min',100);
 						$('#d_vtor_a_61').attr('max',150);
 					}
@@ -1549,11 +1528,11 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_6 option:selected').text() == '1') {
+					if ($('#vtor_v_6 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
-						$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
+						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
-						$('#d_vtor_a_61').attr('max',175); $('#id_vtor_a_6max').val(175);
+						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(25);
 						$('#id_vtor_a_6').val(25);
 						if ($('#vtor_v_5 option:selected').text() == '0.5') {
@@ -1573,18 +1552,18 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_6 option:selected').text() == '3') {
+					if ($('#vtor_v_6 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_5 option:selected').text() == '1') {
+						if ($('#vtor_v_5 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
-							$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
+							$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
-							$('#d_vtor_a_61').attr('max',175); $('#id_vtor_a_6max').val(175);
+							$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 							$('#id_vtor_a_5').val(25);
 							$('#id_vtor_a_6').val(25);
 						}
@@ -1633,7 +1612,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_6 option:selected').text() == '1') {
+					if ($('#vtor_v_6 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1657,14 +1636,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_6 option:selected').text() == '3') {
+					if ($('#vtor_v_6 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_5 option:selected').text() == '1') {
+						if ($('#vtor_v_5 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',175); $('#id_vtor_a_5max').val(175);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1705,12 +1684,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',150); $('#id_vtor_a_5max').val(150);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',250); $('#id_vtor_a_5max').val(250);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1741,7 +1720,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1765,14 +1744,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1814,12 +1793,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_51').attr('max',200); $('#id_vtor_a_5max').val(200);
 						$('#id_vtor_a_5').val(10);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',20); $('#id_vtor_a_5min').val(20);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(20);
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',100); $('#id_vtor_a_5min').val(100);
 						$('#d_vtor_a_51').attr('max',300); $('#id_vtor_a_5max').val(300);
 						$('#id_vtor_a_5').val(100);
@@ -1850,7 +1829,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '1') {
+					if ($('#vtor_v_5 option:selected').text() == '1.0') {
 						$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 						$('#d_vtor_a_51').attr('max',275); $('#id_vtor_a_5max').val(275);
 						$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1874,14 +1853,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_6').val(5);
 						}
 					}
-					if ($('#vtor_v_5 option:selected').text() == '3') {
+					if ($('#vtor_v_5 option:selected').text() == '3.0') {
 						$('#d_vtor_a_51').attr('min',75); $('#id_vtor_a_5min').val(75);
 						$('#d_vtor_a_51').attr('max',225); $('#id_vtor_a_5max').val(225);
 						$('#d_vtor_a_61').attr('min',75); $('#id_vtor_a_6min').val(75);
 						$('#d_vtor_a_61').attr('max',225); $('#id_vtor_a_6max').val(225);
 						$('#id_vtor_a_5').val(75);
 						$('#id_vtor_a_6').val(75);
-						if ($('#vtor_v_6 option:selected').text() == '1') {
+						if ($('#vtor_v_6 option:selected').text() == '1.0') {
 							$('#d_vtor_a_51').attr('min',25); $('#id_vtor_a_5min').val(25);
 							$('#d_vtor_a_51').attr('max',275); $('#id_vtor_a_5max').val(275);
 							$('#d_vtor_a_61').attr('min',25); $('#id_vtor_a_6min').val(25);
@@ -1945,7 +1924,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',175); $('#id_vtor_a_3max').val(175);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -1969,14 +1948,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',225); $('#id_vtor_a_4max').val(225);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',175); $('#id_vtor_a_3max').val(175);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2027,7 +2006,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2051,14 +2030,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',325); $('#id_vtor_a_3max').val(325);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',325); $('#id_vtor_a_4max').val(325);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2110,7 +2089,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2134,14 +2113,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',325); $('#id_vtor_a_3max').val(325);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',325); $('#id_vtor_a_4max').val(325);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2192,7 +2171,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',375); $('#id_vtor_a_3max').val(375);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2216,14 +2195,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',525); $('#id_vtor_a_3max').val(525);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',525); $('#id_vtor_a_4max').val(525);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',375); $('#id_vtor_a_3max').val(375);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2273,12 +2252,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_31').attr('max',100); $('#id_vtor_a_3max').val(100);
 						$('#id_vtor_a_3').val(10);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',20); $('#id_vtor_a_3min').val(20);
 						$('#d_vtor_a_31').attr('max',200); $('#id_vtor_a_3max').val(200);
 						$('#id_vtor_a_3').val(20);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',100); $('#id_vtor_a_3min').val(100);
 						$('#d_vtor_a_31').attr('max',300); $('#id_vtor_a_3max').val(300);
 						$('#id_vtor_a_3').val(100);
@@ -2298,12 +2277,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_31').attr('max',150); $('#id_vtor_a_3max').val(150);
 						$('#id_vtor_a_3').val(10);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',20); $('#id_vtor_a_3min').val(20);
 						$('#d_vtor_a_31').attr('max',250); $('#id_vtor_a_3max').val(250);
 						$('#id_vtor_a_3').val(20);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',100); $('#id_vtor_a_3min').val(100);
 						$('#d_vtor_a_31').attr('max',400); $('#id_vtor_a_3max').val(400);
 						$('#id_vtor_a_3').val(100);
@@ -2336,7 +2315,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',175); $('#id_vtor_a_3max').val(175);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2360,14 +2339,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',225); $('#id_vtor_a_4max').val(225);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',175); $('#id_vtor_a_3max').val(175);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2418,7 +2397,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2442,14 +2421,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',325); $('#id_vtor_a_3max').val(325);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',325); $('#id_vtor_a_4max').val(325);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2492,12 +2471,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_31').attr('max',150); $('#id_vtor_a_3max').val(150);
 						$('#id_vtor_a_3').val(10);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',20); $('#id_vtor_a_3min').val(20);
 						$('#d_vtor_a_31').attr('max',250); $('#id_vtor_a_3max').val(250);
 						$('#id_vtor_a_3').val(20);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',100); $('#id_vtor_a_3min').val(100);
 						$('#d_vtor_a_31').attr('max',400); $('#id_vtor_a_3max').val(400);
 						$('#id_vtor_a_3').val(100);
@@ -2530,7 +2509,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2554,14 +2533,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',325); $('#id_vtor_a_3max').val(325);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',325); $('#id_vtor_a_4max').val(325);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',225); $('#id_vtor_a_3max').val(225);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2604,12 +2583,12 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 						$('#d_vtor_a_31').attr('max',200); $('#id_vtor_a_3max').val(200);
 						$('#id_vtor_a_3').val(10);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',20); $('#id_vtor_a_3min').val(20);
 						$('#d_vtor_a_31').attr('max',400); $('#id_vtor_a_3max').val(400);
 						$('#id_vtor_a_3').val(20);
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',100); $('#id_vtor_a_3min').val(100);
 						$('#d_vtor_a_31').attr('max',600); $('#id_vtor_a_3max').val(600);
 						$('#id_vtor_a_3').val(100);
@@ -2642,7 +2621,7 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '1') {
+					if ($('#vtor_v_3 option:selected').text() == '1.0') {
 						$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 						$('#d_vtor_a_31').attr('max',375); $('#id_vtor_a_3max').val(375);
 						$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -2666,14 +2645,14 @@ if (tip == 7 || tip == 8 || tip == 9 || tip == 10) {
 							$('#id_vtor_a_4').val(5);
 						}
 					}
-					if ($('#vtor_v_3 option:selected').text() == '3') {
+					if ($('#vtor_v_3 option:selected').text() == '3.0') {
 						$('#d_vtor_a_31').attr('min',75); $('#id_vtor_a_3min').val(75);
 						$('#d_vtor_a_31').attr('max',525); $('#id_vtor_a_3max').val(525);
 						$('#d_vtor_a_41').attr('min',75); $('#id_vtor_a_4min').val(75);
 						$('#d_vtor_a_41').attr('max',525); $('#id_vtor_a_4max').val(525);
 						$('#id_vtor_a_3').val(75);
 						$('#id_vtor_a_4').val(75);
-						if ($('#vtor_v_4 option:selected').text() == '1') {
+						if ($('#vtor_v_4 option:selected').text() == '1.0') {
 							$('#d_vtor_a_31').attr('min',25); $('#id_vtor_a_3min').val(25);
 							$('#d_vtor_a_31').attr('max',375); $('#id_vtor_a_3max').val(375);
 							$('#d_vtor_a_41').attr('min',25); $('#id_vtor_a_4min').val(25);
@@ -3494,7 +3473,6 @@ if (tip == 4) {
 	  
   $('#tip').change(function(){	
 	tip = this.options[this.selectedIndex].value; 
-	if (tip == 4 || tip == 7 || tip == 8 || tip == 9 || tip == 10){
 	seldata = '<option value="">...</option>';
     $.ajax({
       type: "POST",
@@ -3506,7 +3484,6 @@ if (tip == 4) {
 		//$("#bar_v").html('');
       }
     });
-	}
   return false;
 });
 
@@ -3545,7 +3522,7 @@ if (tip == 4) {
       type: "POST",
       url: "/wp-content/themes/semicolon/res2sel.php",
       //data: "table="+ encodeURIComponent("analogs") + '&column0='+ encodeURIComponent("*") + '&case='+ encodeURIComponent("zavodeq'СЭЩ'"),
-      data: "table=klimkatref&column0=klim_kat&case=tip_isp_id_eq_"+isp,
+      data: "table=KlimKatRef&column0=klim_kat&case=tip_isp_id_eq_"+isp,
       success: function(data2){
         $("#klim_kat").html(seldata+data2);
 		$("#gib_v").css("display", "none");
@@ -3553,7 +3530,7 @@ if (tip == 4) {
 		  $.ajax({
 	      type: "POST",
 	      url: "/wp-content/themes/semicolon/res2rad.php",
-	      data: "table=sectermref&column0=sec_term_id&column1=sec_term&case=tip_isp_id_eq_"+isp+"&mark=1",
+	      data: "table=SecTermRef&column0=sec_term_id&column1=sec_term&case=tip_isp_id_eq_"+isp+"&mark=1",
 	      success: function(data15){
 			if ((tip == 7 || tip == 8 ) && (napr == 6 || napr == 10) && (gab == '00' || gab == '01' || gab == '06' || gab == '07'))
 			{
@@ -3579,11 +3556,11 @@ if (tip == 4) {
 					if (napr == 6 || napr == 10){
 						if (gab == '06' || gab == '07'){
 							$('#max_m').html('<option value="250">250</option>');
-							$('#vtor_v_5').html('<option value="">...</option><option value="1">0.2</option><option value="2">0.5</option><option value="3">1</option>');
+							$('#vtor_v_5').html('<option value="">...</option><option value="1">0.2</option><option value="2">0.5</option><option value="3">1.0</option>');
 						}
 						else {
 							$('#max_m').html('<option value="">...</option><option value="400">400</option><option value="630">630</option>');
-							$('#vtor_v_5').html('<option value="">...</option><option value="1">0.2</option><option value="2">0.5</option><option value="3">1</option><option value="4">3</option>');
+							$('#vtor_v_5').html('<option value="">...</option><option value="1">0.2</option><option value="2">0.5</option><option value="3">1.0</option><option value="4">3.0</option>');
 						}
 					}
 					if (tip == 7 && napr == 35){
@@ -4096,7 +4073,7 @@ function search(){
 		if (data21 == '') {
 			sr = document.getElementById('search');
 			_sform = 'sform';
-			sr.outerHTML = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="5">Данная номенклатура не изготавливалась, для заказа необходим расчёт возможности изготовления</td></tr><tr><td width="10%" class="tdsmaltxt">Заказываемая конфигурация:</td><td id="newzakaz">...</td><td class="tdsmaltxt">Вы можете добавить примечание:</td><td><input type="text" id="newzakaztxt" class="inputbox1" style="width:450px;" /></td><td width="10%"><div class="tdbuttonbl" onclick="addnew(document.getElementById(_sform));" id="clcknew"  style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;">Добавить в заказ</div></td></tr></table>';
+			sr.outerHTML = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="5">Данная номенклатура не изготавливалась, для заказа необходим расчёт возможности изготовления</td></tr><tr><td width="10%" class="tdsmaltxt">Заказываемая конфигурация:</td><td id="newzakaz">...</td><td class="tdsmaltxt">Вы можете добавить примечание:</td><td><input type="text" id="newzakaztxt" class="inputbox1" style="width:450px;" /></td><td width="10%"><div class="tdbuttonbl" onclick="addnew(document.getElementById(_sform));" id="clcknew"  style="cursor:pointer; width:100px;margin:0px;height:36px;">Добавить в заказ</div></td></tr></table>';
 			document.getElementById('newzakaz').innerText = document.getElementById('sform').value;
 		    document.getElementById('clcknew').innerText = 'Добавить в заказ';
 			document.getElementById('clcknew').className = 'tdbuttonbl';
@@ -4108,7 +4085,7 @@ function search(){
 			srtext = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="4">Найденная номенклатура:</td></tr><tr><td>№</td><td style="text-align:center;">Конфигурация</td><td>Пояснение</td><td>Добавление</td></tr>';
 			for (i = 0 ; i < sr.childNodes.length; i++) {
 				if (sr.childNodes[i].nodeType == 1) {
-					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
+					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100px;margin:0px;height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
 				}
 			}
 			srtext += '</table>';
@@ -4126,7 +4103,6 @@ function search(){
 			$('#like1').css('display','none'); $('#like2').css('display','none');
 		}
 		$('#nav').html('<div id="novy" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 0 0 25%;" onclick="novy();">Новый поиск</div><div id="noob" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 1px;" onclick="noob();">Новый объект</div><div id="nave" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 25% 0 0;" onclick="nave();"> Наверх </div>')
-	getdata(tip, -2);
 }
 
 function likesearch(){
@@ -4349,7 +4325,7 @@ function likesearch(){
 			srtext = '<table id="likesearch" style="max-width:100%;width:100%;"><tr><td colspan="4">Похожая номенклатура:</td></tr><tr><td>№</td><td style="text-align:center;">Конфигурация</td><td>Пояснение</td><td>Добавление</td></tr>';
 			for (i = 0 ; i < sr.childNodes.length; i++) {
 				if (sr.childNodes[i].nodeType == 1) {
-					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
+					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100px;margin:0px;height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
 				}
 			}
 			srtext += '</table>';

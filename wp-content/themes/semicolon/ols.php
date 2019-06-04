@@ -33,7 +33,7 @@ $_REQUEST['case']='tip_id_eq_'.$tip;
 //echo '<option value="" selected>...</option>';
 include("res2sel.php");
 ?>
-</select><p style="visibility:hidden;"><input id="napr_nt" type="checkbox" disabled/>неточно</p>
+</select><p><input id="napr_nt" type="checkbox" disabled/>неточно</p>
 				</td><td>
 				<p id="ols0" style="visibility:hidden;">Исполнение</p>
 <select id="gab" class="inputbox1" style="visibility:hidden;">

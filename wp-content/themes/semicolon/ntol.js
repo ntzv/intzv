@@ -30,27 +30,6 @@ tip = t.options[t.selectedIndex].value;
 
 $('#klass').html('<p>'+t.options[t.selectedIndex].text+'</p>');
 
-  $('.help').click(function(){	
-	var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	var height = $(window).height();
-	var top = Math.ceil(scrollTop + (height - $('#msg').outerHeight())/2);
-	var mes = '';  
-	tag = this.childNodes[0].textContent; 
-	for (i = 0; i < help.length; i++){
-		if (help[i][0] == tag && (help[i][2] == 1 || help[i][2] == 2 || help[i][2] == 3)) {mes = help[i][1];}
-	}  
-	//$('#msg').css('left', Math.ceil(($(window).width() - $('#msg').outerWidth())/2));  
-	//$('#msg').css('top', Math.ceil((scrollTop + document.body.clientHeight - $('#msg').outerHeight())/2));  
-	$('#msg').css('top', top);  
-	$('#msgname').html(tag);
-	$('#msgtext').html(mes);
-	//alert(Math.ceil(($(window).width() - $('#msg').outerWidth())/2)) ; 
-	$('#msg').css('display','block');
-	//alert(mes);
-	//for (a in this.childNodes[0]) {alert(a) ;} 
-	return false;
-  });	
-
 if (tip == 5 || tip == 6) {
 	if (document.getElementById('rowvyv')) {document.getElementById('rowvyv').style.display = 'table-row';}
 	if (document.getElementById('ntol1')) {document.getElementById('ntol1').style.display = 'inline';}
@@ -87,7 +66,6 @@ if (tip == 5 || tip == 6) {
       }
 	}
 }
-/*
 //tip = t.options[t.selectedIndex].value;
 if (tip == 4) {
 	//alert(tip);
@@ -118,7 +96,7 @@ if (tip == 4) {
 //$(document).ready(function(){
 //	
 //});
-*/
+
 
   $('#td_02').change(function(){	
 	if ($(this).is(':checked')){
@@ -1153,7 +1131,7 @@ if (tip == 4) {
       type: "POST",
       url: "/wp-content/themes/semicolon/res2sel.php",
       //data: "table="+ encodeURIComponent("analogs") + '&column0='+ encodeURIComponent("*") + '&case='+ encodeURIComponent("zavodeq'СЭЩ'"),
-      data: "table=klimkatref&column0=klim_kat&case=tip_isp_id_eq_"+isp,
+      data: "table=KlimKatRef&column0=klim_kat&case=tip_isp_id_eq_"+isp,
       success: function(data2){
         $("#klim_kat").html(seldata+data2);
 	    if (document.getElementById('rowvyv') && tip == 5 && gab == 'IV') {document.getElementById('rowvyv').style.display = 'none';}
@@ -1163,7 +1141,7 @@ if (tip == 4) {
 		$.ajax({
 	      type: "POST",
 	      url: "/wp-content/themes/semicolon/res2rad.php",
-	      data: "table=sectermref&column0=sec_term_id&column1=sec_term&case=tip_isp_id_eq_"+isp+"&mark=1",
+	      data: "table=SecTermRef&column0=sec_term_id&column1=sec_term&case=tip_isp_id_eq_"+isp+"&mark=1",
 	      success: function(data15){
 			$("#var_v_v").html(data15);
 			$('#var_v_v_nt').prop('disabled', false);
@@ -1377,6 +1355,68 @@ if (tip == 4) {
 					$("#vtor_a_1").append( $('<option value="60">60</option>'));  
 				}
 
+/*
+//------------------для тока переключения-----------------
+				  $.ajax({
+					type: "POST",
+					url: "/wp-content/themes/semicolon/res2var.php",
+					data: "table=tip_ispoln&column0=opc_perek&case=id_eq_"+isp,
+					success: function(data10){
+	                  $("#tok_per").html('<input id="t_perek" type="text" value="'+data10+'" />');
+			          tokper=document.getElementById("t_perek").value;
+			          //alert("2="+mintok);
+			          $.ajax({
+		                type: "POST",
+		                url: "/wp-content/themes/semicolon/res2var.php",
+		                data: "table=per_t&column0=perek&case=tok_eq_"+per_t,
+		                success: function(data11){
+				          //alert("2="+maxtok);
+		                  $("#per").html('<input id="_perek" type="text" value="'+data11+'" />');
+			              perek=document.getElementById("_perek").value;
+						  tok_perek = per_t / 2;	
+						  $("#perpert1").html('Номинальный ток<br /> переключения, А<br /><input id="tokperek" type="text" class="inputbox" style="width:100px; background:#fee;" value="'+tok_perek+'" disabled />');
+						  $("#perpert2").html('Ток термической стойкости<br /> переключения, кА<br /><select id="per_term" class="inputbox1"></select>');
+						  $('#perek').click(function(){ if ($(this).is(':checked') && (!otp)){$("#perpert1").css("display", "inline-block"); $("#perpert2").css("display", "inline-block"); perekl = true;} else {$("#perpert1").css("display", "none"); $("#perpert2").css("display", "none"); perekl = false;} });	
+						  //alert(per_t); $("#perpert").html('<input type="checkbox" id="perek" value="" /> - Переключение по<br /> первичному току');	
+						  if ((perek * tokper * 1 == 1) && (!otp)) {
+							  $('#perek').prop('disabled', false); //$("#perpert").css("display", "inline-block"); 
+						  } else {$('#perek').prop('disabled', true);$("#perpert1").css("display", "none"); $("#perpert2").css("display", "none");};	
+			              $.ajax({
+		                    type: "POST",
+		                    url: "/wp-content/themes/semicolon/res2var.php",
+		                    data: "table=tok_term&column0=max&case=tok_eq_"+tok_perek,
+		                    success: function(data12){
+				              //alert("2="+maxtok);
+		                      $("#tokper_term").html('<input id="tper_term" type="text" value="'+data12+'" />');
+	                          tokperterm=document.getElementById("tper_term").value;
+			                  $.ajax({
+		                        type: "POST",
+		                        url: "/wp-content/themes/semicolon/res2var.php",
+		                        data: "table=tok_term&column0=stand&case=tok_eq_"+tok_perek,
+		                        success: function(data13){
+				                  //alert("2="+maxtok);
+		                          $("#tokper_stand").html('<input id="tper_stand" type="text" value="'+data13+'" />');
+	                              tokperstand=document.getElementById("tper_stand").value;
+			                      $.ajax({
+		                            type: "POST",
+		                            url: "/wp-content/themes/semicolon/res2sel.php",
+		                            data: "table=tokterm&column0=tokterm&case=tokterm_lteq_"+tokperterm+"&mark="+tokperstand,
+		                            success: function(data14){
+				                      //alert("2="+maxtok);
+		                              $("#per_term").html(seldata+data14);
+		                            }
+		                          });  
+		                        }
+		                      });  
+		                    }
+		                  });  
+		                }
+		              });  
+	                }
+	              }); 
+//------------------------------------------------------------------				  
+
+*/
 
 				}
 		    });  
@@ -1842,7 +1882,7 @@ function search(){
 		if (data21 == '') {
 			sr = document.getElementById('search');
 			_sform = 'sform';
-			sr.outerHTML = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="5">Данная номенклатура не изготавливалась, для заказа необходим расчёт возможности изготовления</td></tr><tr><td width="10%" class="tdsmaltxt">Заказываемая конфигурация:</td><td id="newzakaz">...</td><td class="tdsmaltxt">Вы можете добавить примечание:</td><td><input type="text" id="newzakaztxt" class="inputbox1" style="width:450px;" /></td><td width="10%"><div class="tdbuttonbl" onclick="addnew(document.getElementById(_sform));" id="clcknew"  style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;">Добавить в заказ</div></td></tr></table>';
+			sr.outerHTML = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="5">Данная номенклатура не изготавливалась, для заказа необходим расчёт возможности изготовления</td></tr><tr><td width="10%" class="tdsmaltxt">Заказываемая конфигурация:</td><td id="newzakaz">...</td><td class="tdsmaltxt">Вы можете добавить примечание:</td><td><input type="text" id="newzakaztxt" class="inputbox1" style="width:450px;" /></td><td width="10%"><div class="tdbuttonbl" onclick="addnew(document.getElementById(_sform));" id="clcknew"  style="cursor:pointer; width:100px;margin:0px;height:36px;">Добавить в заказ</div></td></tr></table>';
 			document.getElementById('newzakaz').innerText = document.getElementById('sform').value;
 		    document.getElementById('clcknew').innerText = 'Добавить в заказ';
 			document.getElementById('clcknew').className = 'tdbuttonbl';
@@ -1854,7 +1894,7 @@ function search(){
 			srtext = '<table id="search" style="max-width:100%;width:100%;"><tr><td colspan="4">Найденная номенклатура:</td></tr><tr><td>№</td><td style="text-align:center;">Конфигурация</td><td>Пояснение</td><td>Добавление</td></tr>';
 			for (i = 0 ; i < sr.childNodes.length; i++) {
 				if (sr.childNodes[i].nodeType == 1) {
-					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
+					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100px;margin:0px;height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
 				}
 			}
 			srtext += '</table>';
@@ -1871,7 +1911,6 @@ function search(){
 			$('#like1').css('display','none'); $('#like2').css('display','none');
 		}
 		$('#nav').html('<div id="novy" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 0 0 25%;" onclick="novy();">Новый поиск</div><div id="noob" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 1px;" onclick="noob();">Новый объект</div><div id="nave" class="tdbuttonbl" style="width:160px;height:50px;font-size:18px;line-height:48px;display:inline-block;margin:0 25% 0 0;" onclick="nave();"> Наверх </div>')
-	getdata(tip, -2);
 }
 
 function likesearch(){
@@ -2146,7 +2185,7 @@ function likesearch(){
 			srtext = '<table id="likesearch" style="max-width:100%;width:100%;"><tr><td colspan="4">Похожая номенклатура:</td></tr><tr><td>№</td><td style="text-align:center;">Конфигурация</td><td>Пояснение</td><td>Добавление</td></tr>';
 			for (i = 0 ; i < sr.childNodes.length; i++) {
 				if (sr.childNodes[i].nodeType == 1) {
-					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100%;margin:0px;height:36px;line-height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
+					srtext += '<tr><td>'+(i*1+1)+'<input id="id'+i+'" type="hidden" value="'+sr.childNodes[i].value+'" /></td><td id="srt'+i+'">'+sr.childNodes[i].text+'</td><td></td><td><div onclick="addzakaz('+i+');this.className=tdbuttongn; this.innerText=aded;" style="cursor:pointer; width:100px;margin:0px;height:36px;" class="tdbuttonbl">Добавить в заказ</div></td></tr>';
 				}
 			}
 			srtext += '</table>';

@@ -5,6 +5,11 @@
  * @package Better_Search
  */
 
+// If this file is called directly, then abort execution.
+if ( ! defined( 'WPINC' ) ) {
+	die( "Aren't you supposed to come here via WP-Admin?" );
+}
+
 /**
  * Function to return the header links of the results page.
  *
@@ -269,6 +274,7 @@ function get_bsearch_form( $search_query ) {
 	if ( '' === $search_query ) {
 		$search_query = get_bsearch_query();
 	}
+	$search_query = esc_attr( $search_query );
 
 	$form = '
 	<div style="text-align:center"><form method="get" class="bsearchform" action="' . home_url() . '/" >

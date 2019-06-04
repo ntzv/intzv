@@ -3,29 +3,28 @@
  * The Template for displaying all single posts.
  */
 
-get_header(); ?>
-    <div id="path"></div> <!-- #path навигационная цепочка-->
-    <?php get_sidebar(); /*Боковая панель*/?>
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+get_header(); ?> 
 
-			<?php while ( have_posts() ) : the_post(); ?>
+	<!-- <div id="path"></div> --> <!-- #path -->
+	<div id="content" class="site-content">
 
-				<?php get_template_part( 'content', 'single' ); ?>
+		<?php get_sidebar(); ?>
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					//if ( comments_open() || '0' != get_comments_number() ) :
-					//	comments_template();
-					//endif;
-				?>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
 
-			<?php endwhile; // end of the loop. ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+					<?php get_template_part( 'content', 'single' ); ?>
 
+				<?php endwhile; // end of the loop. ?>
 
+			</main><!-- #main -->
+		</div><!-- #primary -->
+	</div><!-- #content -->
+
+	<?php get_footer(); ?>
+</div><!-- #page -->
 
 <script>
     $ = window.jQuery;
@@ -39,6 +38,4 @@ get_header(); ?>
 	}
 	 if (document.location.search.indexOf('p=')>0)
 	 {document.getElementById('path').innerHTML = '<p>' + s +'</p>';}
-  </script>
-
-<?php get_footer(); ?>
+</script>

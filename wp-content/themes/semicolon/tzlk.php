@@ -21,89 +21,57 @@
 	
 <table id="tzl" class="empty" style="max-width:100%;width:100%;">
 	<tr>
-				<td id="klass" colspan="2" style="text-align:center;vertical-align:middle"></td><td colspan="1">
-				<p style="display:none;">Класс напряжения, кВ</p>
-<select id="napr" class="inputbox1" style="display:none;">
+				<td id="klass" style="text-align:center;vertical-align:middle"></td><td colspan="2">
+				<p>Класс напряжения, кВ</p>
+<select id="napr" class="inputbox1">
 <option value="" selected>0.66</option>	
 <?php
 //$tip = isset($_REQUEST['tabl'])?$_REQUEST['tabl']:'1';
 //$_REQUEST['table']='tip_ispoln';
 //$_REQUEST['column0']='napr';
 //$_REQUEST['case']='tip_id_eq_'.$tip;
-echo '<option value="" selected>0.66</option>';
+
 //include("res2sel.php");
 ?>
 </select>
-				</td><td colspan="2">
+				</td><td>
 				<p>Исполнение</p>
 <select id="gab" class="inputbox1">
 <?php
 $tip = isset($_REQUEST['tabl'])?$_REQUEST['tabl']:'11';
 $_REQUEST['table']='tip_ispoln';
 $_REQUEST['column0']='napr';
-$_REQUEST['case']='tip_id_eq_'.$tip.'_and_ispoln_eq_0';
+$_REQUEST['case']='tip_id_eq_'.$tip.'_and_ispoln_eq_1';
 
 include("res2sel.php");
 ?>
-</select><p><input id="gab_nt" type="checkbox" disabled/>неточно</p>
-				</td><td colspan="1">
+</select>
+				</td><td colspan="2">
 				<p>Климатическое исполнение</p>
 <select id="klim_kat" class="inputbox1">
 
-</select><p><input id="klim_kat_nt" type="checkbox" disabled/>неточно</p>
+</select>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="6" style="vertical-align:top;">
-					<p style="text-align:center;">Назначение</p>
-				</td>
-			</tr>	
-			<tr>
 				<td colspan="1" style="vertical-align:top;">
-					<p> </p>
-				</td>
-				<td colspan="2" style="vertical-align:top;">
-					<p id="nazn0"><input type="radio" name="nazn" id="nazn00" value="0" checked/> Для работы с электромагнитным реле максимального тока</p>
-				</td>
-				<td colspan="1" style="vertical-align:top;">
-					<p id="nazn1"><input type="radio" name="nazn" id="nazn01" value="1"/> Для работы с микропроцессорными терминалами релейной защиты</p>
-				</td>
-				<td colspan="2" style="vertical-align:top;">
-					<p> </p>
-				</td>
-			</tr>	
-			<tr>
-				<td colspan="1" style="vertical-align:top;">
-					<p style="visibility:hidden;">Номинальная частота</p>
-<select id="chast" class="inputbox1" style="visibility:hidden;">
+					<p>Номинальная частота</p>
+<select id="chast" class="inputbox1">
 <option value="50">50</option><option value="60">60</option>
 </select> 
 				</td>
-				<td colspan="2" style="vertical-align:top;">
+				<td colspan="1" style="vertical-align:top;">
 				
 				</td>
 				<td colspan="2" style="vertical-align:top;">
 					<p>Коэффициент трансформации</p>
 <select id="koeftr" class="inputbox1">
 <option value="">...</option>
-</select> / 1<p><input id="koeftr_nt" type="checkbox" disabled/>неточно</p>
+</select> 
 				</td>
-				<td colspan="1" style="vertical-align:top;">
+				<td colspan="2" style="vertical-align:top;">
 
 				</td>
-			</tr>	
-			<tr id="tzlk1" style="display:none;">
-				<td colspan="1" style="text-align:center;vertical-align:middle"></td><td colspan="1">
-				</td><td colspan="1">
-				<p>Предельная нагрузка, Ом</p>
-<select id="pred_n" class="inputbox1">
-</select><p><input id="pred_n_nt" type="checkbox" disabled/>неточно</p>
-				</td><td colspan="3">
-				<p>Максимальная токовая погрешность, %</p>
-<select id="max_p" class="inputbox1">
-</select><p><input id="max_p_nt" type="checkbox" disabled/>неточно</p>
-				</td>
-			</tr>
 		</table>
 		<table id="a00" class="empty" style="display:none;">
 			<tr>
@@ -124,13 +92,13 @@ include("res2sel.php");
 				  </td>
 				  </tr>
 				  <tr>
-				  <td onclick="addrow2('a01');" class="tdbuttonbl">добавить<br /> отпайку</td><td colspan="6"></td>
+				  <td onclick="addrow2('a01');" class="tdbutton">добавить<br /> отпайку</td><td colspan="6"></td>
 				  </tr>	  
 				  </table>
 				</td>
 			</tr>
 			<tr>
-				<td onclick="addrow('a00');" class="tdbuttonbl">добавить<br />обмотку</td><td colspan="7"></td>
+				<td onclick="addrow('a00');" class="tdbutton">добавить<br />обмотку</td><td colspan="7"></td>
 			</tr>
 		</table>
 
@@ -141,7 +109,7 @@ include("res2sel.php");
 				<td></td><td colspan="6"></td><td></td>
 			</tr>
 			<tr>
-				<td width="10%"></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line-height:48px;width:80%;" colspan="6">Выполнить поиск</td><td onclick="createpdf(tip);" id="create" class="tdbuttonbl" style="border-left:1px solid white; height:50px;font-size:18px;line:height:48px;width:10%;">PDF документ</td>
+				<td></td><td onclick="search();" id="clck" class="tdbuttonbl" style="height:50px;font-size:18px;line:height:48px;" colspan="6">Выполнить поиск</td><td></td>
 			</tr>
 			<tr>
 				<td></td><td colspan="6"><input id="sform" type="text" disabled style="width:100%;"/></td><td></td>
@@ -167,3 +135,12 @@ include("res2sel.php");
 				</td>
 			</tr>
         </table>
+
+<div id="msg" class="info" >
+	<div>
+		
+	</div>
+	<p  onclick="this.parent.style.display='none';">
+		x
+	</p>
+</div>

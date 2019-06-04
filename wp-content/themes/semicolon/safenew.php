@@ -1,8 +1,4 @@
 <?php
-global $current_user;
-
-$login = ($current_user->user_login)?$current_user->user_login:'';
-
 include("dbconfig.php");
 
 if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
@@ -34,7 +30,6 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 		$mail = "";
 		$phone = "";
 		$prim = "";
-		$config = "";
 
 		$case = "1 = 1";
 		
@@ -154,11 +149,8 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 	  $org = str_replace("__", " ", $org);
 	  $org = 'org='.$org;
 	}
-	if (isset($_REQUEST["config"]) && $_REQUEST["config"] != ""){
-	  $config = ',data='.$_REQUEST["config"];
-	}
 
-	setcookie("session_id", $_REQUEST["sesid"], time()+60*60*24*1100, "/", "intzv.ru", 1);
+	setcookie("session_id", $_REQUEST["sesid"], time()+60*60*24*1100, "/", "ntz-volhov.r-host.ru", 1);
 
 	$query = "SELECT max(id)+1 FROM vsezakaz"; 
 	
@@ -199,9 +191,9 @@ if (isset($_REQUEST['table']) && $_REQUEST['table'] != ""){
 
 	$number = "number=".$number.",";
 		
-	$query = "UPDATE $table SET $manager $objectt $address $mail $phone $sesid $number $inn $org $config WHERE $case";
+	$query = "UPDATE $table SET $manager $objectt $address $mail $phone $sesid $number $inn $org WHERE $case";
 		
-	if ($login == 'ntz-volhov') echo '<h3>'.$query.'</h3>';
+	//echo '<h3>'.$query.'</h3>';
 	
 	$result = mysql_query($query, $connection) or die(mysql_error());
 		
